@@ -3,7 +3,7 @@
 	categorie="squelette"
 	version="1.0.0"
 	etat="dev"
-	compatibilite="[3.0.21;3.0.*]"
+	compatibilite="[3.0.21;3.1.*]"
 	logo="prive/themes/spip/images/dei_belgique-64.png"
 	documentation=""
 >
@@ -18,6 +18,11 @@
 	<auteur lien='http://websimple.be'>Rainer</auteur>
 
 	<licence>GNU/GPL</licence>
+
+	<necessite nom="wsps_html5" compatibilite="[1.1.14;]" />
+	<necessite nom="wsp_ml" compatibilite="[0.2.6;]" />
+	<necessite nom="menuder" compatibilite="[2.2.0;]" />
+	<necessite nom="anythingslider" compatibilite="[2.0.1;]" />
 
 	<!--
 		Exemple de commandes
