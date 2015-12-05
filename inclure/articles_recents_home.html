@@ -1,0 +1,10 @@
+<B_articles>
+<section class="liste articles sommaire">
+	[(#ID_RUBRIQUE|?{<h2 class="h2 invisible"><:articles_rubrique:></h2>,<h2 class="h2 articles_recents"><:derniers_articles:></h2>})]
+	<ul class="liste-items">
+		<BOUCLE_articles(ARTICLES) {!par date}{lang} {0,5}>	
+		#INCLURE{fond=inclure/article-resume,id_article}	
+		</BOUCLE_articles>
+	</ul>
+</section>
+</B_articles>

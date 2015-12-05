@@ -6,6 +6,7 @@
 
 #slider-container {
 	overflow: visible;
+	position: relative;
 }
 
 .theme-custom .nivoSlider img {

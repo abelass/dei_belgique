@@ -7,6 +7,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// D
 	'dei_belgique_titre' => 'DEI Belgique',
+	
+	// L
+	'latest_news' => 'Latest news',
 );
 
 ?>

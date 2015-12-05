@@ -1,0 +1,26 @@
+[(#REM)
+
+  Squelette Presentation d'un article dans une liste
+  (c) 2009 Zpip
+  Distribue sous licence GPL
+
+]
+
+[(#CONFIG{wsps_html5/cacher_site_public}|is_array|?{
+	#SET{afficher,#CONFIG{wsps_html5/cacher_site_public}},
+	#SET{afficher,#ARRAY}
+	}
+)]
+
+<BOUCLE_articles(ARTICLES) {id_article} {statut?}>
+<li class="item hentry">
+	<span class="dateItem">[(#DATE|jour)]</span>
+	<div class="header">
+		<h3 class="Title"><a class="lire-la-suite" href="#URL_ARTICLE">#TITRE</a></h3>
+	</div>
+	<div class="body">
+		[<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION)</div>]
+		<span class="DateCreated"> [(#DATE|nom_mois)] [(#DATE|annee)] </span>
+	</div>
+</li>
+</BOUCLE_articles>
