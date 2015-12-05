@@ -1,0 +1,53 @@
+#SET{urls,#ARRAY{}}
+<B_rubriques>
+	<div id="slider-container" class="theme-custom">
+		<ul id="slider" class="nivoSlider">
+	<BOUCLE_rubriques(RUBRIQUES){id_parent}{tout}>#SET{urls,#GET{urls}|push{#URL_RUBRIQUE}}
+			<li class="counter_#COMPTEUR_BOUCLE">
+				<div class="inner">
+						[(#CHEMIN{images/slider_rub_#ID_TRAD.jpg}|image_reduire{940}|inserer_attribut{alt,#TITRE}|inserer_attribut{title,#counter#COMPTEUR_BOUCLE})]
+				</div>
+			</li>
+	</BOUCLE_rubriques>
+		</ul>
+	</div>
+</B_rubriques>
+<BOUCLE_caption(DATA){source tableau,#GET{urls}}>
+	<div class="nivo-html-caption" id="counter#COMPTEUR_BOUCLE">
+		<div class="clr"></div>
+		<div class="clr"></div>
+			<a class="moduleItemReadMore" href="#VALEUR">+ info</a>
+	</div>
+</BOUCLE_caption>
+
+<script type="text/javascript">
+	$(window).load(function() {
+		$('#slider').nivoSlider({
+			effect: 'sliceDown',		
+			slices: 15,
+			boxCols: 8,
+			boxRows: 4,
+			animSpeed: 500,
+			pauseTime: 6000,
+			startSlide: 0,
+			directionNav: false,
+			directionNavHide: false,
+			controlNav:true,
+			controlNavThumbs: false,
+			controlNavThumbsFromRel: false,
+			controlNavThumbsSearch: 'XL.jpg',	
+			controlNavThumbsReplace:'XS.jpg',	
+			keyboardNav: true,
+			pauseOnHover: true,
+			manualAdvance: false,
+			captionOpacity: 1,
+			prevText: 'Prev',
+			nextText: 'Next',
+			beforeChange: function(){},
+			afterChange: function(){},
+			slideshowEnd: function(){},
+			lastSlide: function(){},
+			afterLoad: function(){}
+		});
+	});
+</script>
