@@ -23,6 +23,7 @@
 	<necessite nom="wsp_ml" compatibilite="[0.2.6;]" />
 	<necessite nom="menuder" compatibilite="[2.2.0;]" />
 	<necessite nom="anythingslider" compatibilite="[2.0.1;]" />
+	<necessite nom="menus" compatibilite="[0.9.4;]" />
 
 	<!--
 		Exemple de commandes
