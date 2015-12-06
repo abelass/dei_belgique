@@ -8,6 +8,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// D
 	'dei_belgique_titre' => 'DEI Belgique',
 	
+	// I
+	'inscription_newsletter' => 'Subscribe to the DCI Newsletter',
+	
 	// L
 	'latest_news' => 'Latest news',
 	

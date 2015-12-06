@@ -8,8 +8,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// D
 	'dei_belgique_titre' => 'DCI Belgium',
 	
+	// I
+	'inscription_newsletter' => 'Inscrivez-vous à la newsletter DEI',
+	
 	// L
-	'latest_news' => 'Latest news',
+	'latest_news' => 'Dernières Nouvelles',
 	
 	// M
 	'mouvement_modial_enfants' => 'The worldwide movement for children\'s rights',
