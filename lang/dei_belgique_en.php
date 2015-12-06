@@ -6,13 +6,13 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// D
-	'dei_belgique_titre' => 'DCI Belgium',
+	'dei_belgique_titre' => 'DEI Belgique',
 	
 	// L
 	'latest_news' => 'Latest news',
 	
 	// M
-	'mouvement_modial_enfants' => 'The worldwide movement for children\'s rights',
+	'mouvement_modial_enfants' => 'Le mouvement mondial pour les droits de l\'enfant',
 	
 );
 
