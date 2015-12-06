@@ -26,7 +26,7 @@
 	left: 50%;
 	bottom: 6px;
 	margin-left: -24px; 
-	z-index: 100;
+	z-index: 10;
 }
 
 .theme-custom .nivo-caption {
