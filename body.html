@@ -1,13 +1,12 @@
 <body>[(#ENV{home}|?{#SET{home,home},[(#COMPOSITION|=={home}|oui)#SET{home,home}]})]
 	<div class="page[ (#GET{home}|oui)home]">
+		<div class="header" id="header">
+			<INCLURE{fond=header/#ENV{type-page},env} />
+		</div>
+		[<div class="navbar navbar-inverse navbar-responsive" id="nav">
+			(#INCLURE{fond=inclure/nav,env}|navbar_responsive)
+		</div>]
 		<div class="container">
-			<div class="header" id="header">
-				<INCLURE{fond=header/#ENV{type-page},env} />
-			</div>
-			[<div class="navbar navbar-inverse navbar-responsive" id="nav">
-				(#INCLURE{fond=inclure/nav,env}|navbar_responsive)
-			</div>]
-
 			<div class="row">
 				<div class="content [(#GET{home}|?{span12,span8})]" id="content">
 					<INCLURE{fond=content/#ENV{type-page},env} />

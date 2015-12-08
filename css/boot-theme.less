@@ -6,7 +6,8 @@
 // Accent colors
 // -------------------------
 
-@green:                 #5D8164;
+@orange:                 #f58d00;
+@bordeaux:							#923882;
 
 
 // Scaffolding
@@ -17,24 +18,16 @@
 
 // Links
 // -------------------------
-@linkColor:             @green;
+@linkColor:             @orange;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
-@font-face {
-  font-family:"Cardenio Modern";
-  src:url("font_face/Cardenio_Modern.eot?") format("eot"),
-    url("font_face/Cardenio_Modern.woff") format("woff"),
-    url("font_face/Cardenio_Modern.ttf") format("truetype"),
-    url("font_face/Cardenio_Modern.svg#CardenioModern") format("svg");
-  font-weight:normal;font-style:normal;
-  }
 
-@serifFontFamily:       Arial, Georgia, Cambria, Times New Roman, Times, serif;
+@sansFontFamily:        Verdana, Geneva, sans-serif;
 
-@fontCardenioModern:    "Cardenio Modern";
+@serifFontFamily:       @sansFontFamily;
 
 
 @baseFontSize:          14px;
@@ -42,27 +35,15 @@
 @baseLineHeight:        20px;
 @altFontFamily:         @sansFontFamily;
 
-@headingsFontFamily:    @fontCardenioModern; 
+@headingsFontFamily:    @baseFontFamily; 
 @headingsFontWeight:    normal;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
 
 // Inverted navbar
-@navbarInverseBackground:                transparent;
+@navbarInverseBackground:                @bordeaux;
 @navbarInverseBackgroundHighlight:       transparent;
-@navbarInverseBorder:                    none;
+@navbarInverseBorder:                    transparent;
 
-@navbarInverseText:                      @linkColor;
-@navbarInverseLinkColor:                 @linkColor;
-@navbarInverseLinkColorHover:            lighten(@linkColor, 25%);
-@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
-@navbarInverseLinkBackgroundHover:       transparent;
-@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
-
-@navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
-@navbarInverseSearchBackgroundFocus:     @white;
-@navbarInverseSearchBorder:              @navbarInverseBackground;
-@navbarInverseSearchPlaceholderColor:    #ccc;
-
-@navbarInverseBrandColor:                @navbarInverseLinkColor;
+@navbarInverseLinkColor:                 @white;
 
