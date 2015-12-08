@@ -3,7 +3,6 @@
 		<header class="cartouche">
 			<h1 class="#EDIT{titre}">#TITRE</h1>
 		</header>
-
 		<div class="main">
 			[(#REM) Boite à outils]
 			[(#INCLURE{fond=inclure/outils,env})]
@@ -17,7 +16,6 @@
 				<INCLURE{fond=inclure/slider,id_parent=#ID_RUBRIQUE}/>
 			</div>
 			</BOUCLE_interventions>
-			
 			<div class="slogan">
 				<:dei_belgique:mouvement_modial_enfants:>
 			</div>
@@ -26,7 +24,7 @@
 				<div class="highlights">
 					<ul class="articles">
 				<BOUCLE_higlights(SELECTION_OBJETS){objet_dest=rubrique}{id_objet_dest=#ID_RUBRIQUE}{par ordre}>
-				      [<li class="[(#COMPTEUR_BOUCLE|alterner{even,odd})][ (#COMPTEUR_BOUCLE|=={1}|?{firstItem,[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui)lastItem]})]">(#ID_OBJET|generer_modele{#OBJET,modeles_so/highlights,#ARRAY{descriptif,#DESCRIPTIF,titre,#TITRE,url,#URL}})</li>]
+					<li class="[(#COMPTEUR_BOUCLE|alterner{even,odd})][ (#COMPTEUR_BOUCLE|=={1}|?{firstItem,[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui)lastItem]})]">(#ID_OBJET|generer_modele{#OBJET,modeles_so/highlights,#ARRAY{descriptif,#DESCRIPTIF,titre,#TITRE,url,#URL}})</li>]
 				</BOUCLE_higlights>
 					</ul>
 				</div>
