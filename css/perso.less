@@ -1,0 +1,61 @@
+@import "css/variables.less";
+@import "css/boot-theme.less";
+
+/*
+ * Navbar
+ */
+
+#header{
+	width:@gridRowWidth;
+	margin:0 auto;
+	}
+
+.navbar .nav {float:none}
+
+.navbar-inner {
+	border-radius:0;
+	box-shadow:none;}
+#nav .menuder {
+	background-color: @bordeaux;
+	border:none;
+	width:@gridRowWidth;
+	margin:0 auto;
+	ul { 
+		background-color: @navbarInverseBackground;
+		border:none;
+		}
+	li {
+		background-color: @navbarInverseBackground;
+		a{margin: 0.8em 0;}
+		li {
+			a{margin:0}
+			background-color: @navbarInverseBackground;
+		}
+	}
+
+	li:hover,li.hover, a:hover, li.on{ background-color: @orange; }
+	a{color:@navbarInverseLinkColor}
+}
+.navbar-inverse .navbar-inner {
+		background:@bordeaux;
+		border:none;
+}
+
+@media (min-width: 1200px) {
+	#header, #nav .menuder{
+		width:@gridRowWidth1200;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+		#header, #nav .menuder{
+		width:@gridRowWidth768;
+	}
+}
+
+@media (max-width: 767px) {
+	.navbar-inverse .navbar-inner {
+		background:transparent;;
+	}
+}
+
