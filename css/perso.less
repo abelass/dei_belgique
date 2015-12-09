@@ -1,6 +1,30 @@
 @import "css/variables.less";
 @import "css/boot-theme.less";
 
+@font-face {
+    font-family: 'Architects Daughter';
+    src: url('webfonts/architectsdaughter-webfont.eot');
+    src: url('webfonts/architectsdaughter-webfont.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/architectsdaughter-webfont.woff2') format('woff2'),
+         url('webfonts/architectsdaughter-webfont.woff') format('woff'),
+         url('webfonts/architectsdaughter-webfont.ttf') format('truetype'),
+         url('webfonts/architectsdaughter-webfont.svg#architects_daughterregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+#logo_site_spip{
+	color:@white;
+	small{display:none}
+	}
+
+/*Titrailles*/
+h2, h3, h3 a,h1, h2 a{
+	padding:0;
+	margin:0;
+	letter-spacing: normal;
+	color:@headingsColor;
+}
+
 /*
  * Navbar
  */
@@ -20,6 +44,8 @@
 	border:none;
 	width:@gridRowWidth;
 	margin:0 auto;
+	text-transform:uppercase;
+	font-weight:normal;
 	ul { 
 		background-color: @navbarInverseBackground;
 		border:none;
@@ -41,14 +67,134 @@
 		border:none;
 }
 
+/* Listes*/
+
+.liste-items .item {
+	border-top: none;
+	h3{
+		font: 16px/24px "Verdana",serif;
+		text-shadow: 1px 0 0 #b3b1b0;
+		color: #817d7b;
+		a {
+			font: 20px "Verdana",serif;
+		}
+	}
+}
+
+
+.liste-items .item:last-child {
+    border-bottom: none;
+}
+
+.itemListCategory h2 {
+	background: #923882;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin: 0 8px 8px 0;
+	padding: 8px;
+	color: #fff;
+	font-size: 190%;
+	text-align: center;
+}
+
+/*Formulaires*/
+
+.formulaire_spip, .formulaire_spip .boutons{background:none;}
+
+.formulaire_spip .boutons{border:none}
+
+/*Général*/
+.newsletter{
+	background: white none repeat scroll 0 0;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+	margin: 6px 0 20px;
+	padding: 26px 28px 24px;
+}
+
+/*Footer*/
+#footer {
+	background: #923882 none repeat scroll 0 0;
+	color: white;
+	border:none;
+	h2 {
+		color:@white;
+		text-transform:uppercase;
+		margin: 0 0 6px;
+	}
+	.descriptif.span9{margin-left:0}
+}
+
+.footer_container{
+	width:@gridRowWidth;
+	margin:auto;
+}
+
+/*Home*/
+.slogan {
+	background: url(images/template/slogan.png) center bottom no-repeat;
+	padding: 0 0 40px;
+	color: #923882;/*#817d7b;*/
+	text-shadow: 1px 0 #923882;/*#d5d4d3;*/
+	font: 28px/34px 'Architects Daughter', cursive;
+	text-align: center;
+	padding: 36px 80px 49px;
+	font-style:italic;
+}
+
+
+ul.articles{
+	margin-right: -20px !important;
+	padding: 0;
+	li {
+		background: rgba(0, 0, 0, 0) url("images/template/art.png") no-repeat scroll center -20px;
+		border-bottom: 2px solid #ededed;
+		float: left;
+		margin-right: 20px;
+		width: 23%;
+		.moduleItemIntrotext a.moduleItemTitle {
+			color: #272524;
+			display: inline-block;
+			font: 22px/28px "Andada",serif;
+			margin: 4px 0 8px;
+			text-shadow: 1px 0 0 #525150;
+		}
+	}
+	li:hover {
+		border-bottom: 2px solid #923882;
+		background-position: center bottom;
+	}
+}
+
+.home .wrapper{
+	clear:both;
+	padding-top:4em;
+	}
+
+span.dateItem {
+	background: rgba(0, 0, 0, 0) url("images/template/dateCreated.png") no-repeat scroll 0 0;
+	color: #f58d00;
+	float: left;
+	font: 30px/66px "Architects Daughter",cursive;
+	height: 67px;
+	margin: 6px 16px 0 0;
+	text-align: center;
+	width: 69px;
+	font-style:italic;
+}
+
+span.DateCreated {
+	color: #f58d00;
+	font: italic 11px/20px Verdana;
+}
+
 @media (min-width: 1200px) {
-	#header, #nav .menuder{
+	#header, #nav .menuder,.footer_container{
 		width:@gridRowWidth1200;
 	}
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-		#header, #nav .menuder{
+		#header, #nav .menuder,.footer_container{
 		width:@gridRowWidth768;
 	}
 }

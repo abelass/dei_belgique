@@ -22,7 +22,7 @@
 			<BOUCLE_rub_accueil(RUBRIQUES){id_trad=59}{tout}{lang}>
 				<B_higlights>
 				<div class="highlights">
-					<ul class="articles">
+					<ul class="liste-items articles">
 				<BOUCLE_higlights(SELECTION_OBJETS){objet_dest=rubrique}{id_objet_dest=#ID_RUBRIQUE}{par ordre}>
 					[<li class="[(#COMPTEUR_BOUCLE|alterner{even,odd})][ (#COMPTEUR_BOUCLE|=={1}|?{firstItem,[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui)lastItem]})]">(#ID_OBJET|generer_modele{#OBJET,modeles_so/highlights,#ARRAY{descriptif,#DESCRIPTIF,titre,#TITRE,url,#URL}})</li>]
 				</BOUCLE_higlights>
@@ -30,14 +30,16 @@
 				</div>
 				</B_higlights>
 			</BOUCLE_rub_accueil>
-			<div class="liste articles span8">
-				<INCLURE{fond=inclure/articles_recents_home,id_rubrique='',env,ajax} />
-			</div>
-			<div class="span3">
-				<div class="facebook">
-					<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FDefensedesEnfantsBelgique&amp;width&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=685690404802705" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:590px;" allowTransparency="true"></iframe>   
+			<div class="wrapper">
+				<div class="liste articles span7">
+					<INCLURE{fond=inclure/articles_recents_home,id_rubrique='',env,ajax} />
 				</div>
-				<INCLURE{fond=inclure/formulaire_newsletter}/>
+				<div class="span4 right">
+					<div class="facebook">
+						<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FDefensedesEnfantsBelgique&amp;width&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=685690404802705" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:590px;" allowTransparency="true"></iframe>   
+					</div>
+					<INCLURE{fond=inclure/formulaire_newsletter}/>
+				</div>
 			</div>
 		</div>
 		<footer>
