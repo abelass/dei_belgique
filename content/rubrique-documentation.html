@@ -1,14 +1,21 @@
 <BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
 
+
+	[(#ID_RUBRIQUE|=={1}|oui)#SET{home,oui}]
+
 	<article class="contenu-principal">
 		[
 		<header class="cartouche">
 			(#ID_TRAD|in_array{#LISTE{8,7,9}}|non)
 			<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 		</header>]
-		[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
-		[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_TRAD,#ARRAY{parent,oui}})]
-		</div>
+
+
+		[
+		<div class="#EDIT{texte} chapo">
+			(#TEXTE)
+		</div>]
+		[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_TRAD,#ARRAY{parents,oui}})]
 
 	[
 	<footer class="notes">

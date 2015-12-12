@@ -1,15 +1,5 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Systeme de publication pour l'internet                           *
- *                                                                         *
- *  Copyright (c) 2001-2014                                                *
- *  Arnaud Martin, Antoine Pitrou, Philippe Riviere, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribue sous licence GNU/GPL.     *
- *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
-\***************************************************************************/
-
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 /**
@@ -21,20 +11,32 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * @param string $class Une class différenciant le formulaire
  * @return array
  */
-function formulaires_recherche_documents_charger_dist($lien = '', $class=''){
-	if ($GLOBALS['spip_lang'] != $GLOBALS['meta']['langue_site'])
-		$lang = $GLOBALS['spip_lang'];
-	else
-		$lang='';
+function formulaires_recherche_documents_charger_dist($id, $options){
+	$rubriques = _request('rubriques');
+	$r = $rubriques  ? $rubriques : $id;
+	$valeurs = array(
+		"recherche" => _request('recherche'),
+	);
+	
+	if (isset($options['parents']) AND !$rubriques) {
+		$sql = sql_select('id_rubrique,titre','spip_rubriques','id_parent=' . $id);
+		$rubriques = array();
+		while ($data = sql_fetch($sql)) {
+			$rubriques[$data['id_rubrique']] = $data['titre'];
+		}
+		$valeurs['rubriques'] = $rubriques;
+	}
+	elseif(is_array($r)){
+		$sql = sql_select('id_rubrique,titre','spip_rubriques','id_parent IN (' . implode(',',$r) . ')');
+		$rubriques = array();
+		while ($data = sql_fetch($sql)) {
+			$rubriques[$data['id_rubrique']] = $data['titre'];
+		}
+		$valeurs['rubriques'] = $rubriques;
+	}
+	else $valeurs['rubriques'] = array($id => sql_getfetsel('titre','spip_rubriques','id_rubrique =' . $r));
 
-	$action = ($lien ? $lien : generer_url_public('recherche')); # action specifique, ne passe pas par Verifier, ni Traiter
-	return 
-		array(
-			'action' => $action,
-			'recherche' => _request('recherche'),
-			'class' => $class,
-			'_id_champ' => $class ? substr(md5($action.$class),0,4) : 'recherche'
-		);
+
+	return $valeurs;
 }
-
 ?>
