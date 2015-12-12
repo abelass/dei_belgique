@@ -1,0 +1,5 @@
+<composition>
+        <nom>Rubrique Documentation</nom>
+        <description>Affichage rubrique Documentation</description>
+        <branche type="rubrique" composition="documentation" /> 
+</composition>
