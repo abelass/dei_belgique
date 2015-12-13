@@ -1,5 +1,5 @@
 <composition>
-        <nom>Rubrique Documentation</nom>
+        <nom>Rubrique Outils pédagogiques</nom>
         <description>Affichage rubrique Outils pédagogiques</description>
         <branche type="rubrique" composition="outils_pedagogique" />
 </composition>
