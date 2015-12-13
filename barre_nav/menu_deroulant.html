@@ -5,15 +5,18 @@
             <BOUCLE_rubriques(RUBRIQUES){id_parent} {id_parent!=57}{par num titre, titre}{tout}>
             <li class="item menu-entree[ (#EXPOSE)][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]">
                 <a href="#URL_RUBRIQUE" class="intitule">[(#TITRE|supprimer_numero|couper{80})]</a>
-
                 <B_sous_rubriques>
                 <ul>
-                    <BOUCLE_sous_rubriques(RUBRIQUES) {id_parent}  {si #COMPOSITION|!={documentation}}{par num titre, titre}{tout}>
-                    <li class="item menu-entree[ (#EXPOSE)][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]">   #COMPOSITION<a href="#URL_RUBRIQUE" <BOUCLE_test_sousrub(RUBRIQUES){id_parent}{0,1}>class="daddy"</BOUCLE_test_sousrub>>[(#TITRE|supprimer_numero|couper{80})]</a><BOUCLE_re(BOUCLE_sous_rubriques)></BOUCLE_re></li>
+                    <BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {si #COMPOSITION|in_array{#LISTE{documentation,outils_pedagogique}}|non}{par num titre, titre}{tout}>
+                    <li class="item menu-entree[ (#EXPOSE)][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]"><a href="#URL_RUBRIQUE" <BOUCLE_test_sousrub(RUBRIQUES){id_parent}{0,1}>class="daddy"</BOUCLE_test_sousrub>>[(#TITRE|supprimer_numero|couper{80})]</a><BOUCLE_re(BOUCLE_sous_rubriques)></BOUCLE_re></li>
                     </BOUCLE_sous_rubriques>
                 </ul>
                 </B_sous_rubriques>
-
+                [(#COMPOSITION|=={outils_pedagogique})
+	                <li class="item menu-entree[ (#EXPOSE)][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]"><a href="[(#SELF|parametre_url{par,annee})]"><:dei_belgique:par_annee:></a></li>
+	                <li class="item menu-entree[ (#EXPOSE)][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]"><a href="[(#SELF|parametre_url{par,theme})]"><:dei_belgique:par_theme:></a></li>
+                ]
+                <//B_sous_rubriques>
             </li>
             </BOUCLE_rubriques>
         </ul>

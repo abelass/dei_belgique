@@ -6,10 +6,10 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// A
 	'adresse' => 'Rue du Marché aux Poulets 30<br/>1000 Bruxelles',
-	
+
 	// C
 	'contact' => 'Contact',
-	
+
 	// D
 	'dei_belgique_titre' => 'DCI Belgium',
 
@@ -18,8 +18,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// L
 	'latest_news' => 'Dernières Nouvelles',
-	
+
 	// P
+	'par_annee' => 'par année',
+	'par_theme' => 'par thème',
 	'propops_dei' => 'A Propos de DEI',
 
 	// M
