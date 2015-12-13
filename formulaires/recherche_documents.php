@@ -13,14 +13,14 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  */
 function formulaires_recherche_documents_charger_dist($id, $options){
 	$rubriques = _request('rubriques');
-	$r = $rubriques  ? $rubriques : $id;
+	$r = (count($rubriques)>0) ? $rubriques : $id;
 	$valeurs = array(
 		"recherche" => _request('recherche'),
 		"rubriques" => $rubriques  ? $rubriques : $id,
 		"par" => _request('par'),
 		'mots' => _request('mots'),
 	);
-	if (isset($options['parents']) AND !$rubriques) {
+	if (isset($options['parents']) AND !$r) {
 		$sql = sql_select('id_rubrique,titre','spip_rubriques','id_parent=' . $id);
 		$rubriques = array();
 		while ($data = sql_fetch($sql)) {

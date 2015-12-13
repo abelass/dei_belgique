@@ -1,0 +1,31 @@
+#SET{rubriques,#ARRAY}
+
+<BOUCLE_rubriques(RUBRIQUES){id_rubrique IN #ENV{rubriques}} {par num titre}>
+	<B_articles_rubriques>
+	#SET{rubriques,#GET{rubriques}|array_merge{#ARRAY{#TITRE,#ID_RUBRIQUE}}}
+	<BOUCLE_articles_rubriques(ARTICLES) {recherche?} {id_rubrique IN #ENV{rubriques}} {where?} {id_rubrique}> </BOUCLE_articles_rubriques>
+</BOUCLE_rubriques>
+
+#SET{mots,#ARRAY}
+<BOUCLE_mots(MOTS){id_groupe = 1} {par num titre}>
+	<B_articles_mots>
+	#SET{mots,#GET{mots}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
+	<BOUCLE_articles_mots(ARTICLES) {recherche?} {id_rubrique IN #ENV{rubriques}} {where?} {id_mot}> </BOUCLE_articles_mots>
+</BOUCLE_mots>
+
+#SET{datas,#GET{rubriques}|array_flip}
+[(#SAISIE{selection_multiple,rubriques,
+	label=<:dei_belgique:label_rubriques:>,
+	datas=#GET{datas},
+	option_intro=<:dei_belgique:tout:>,
+	class=chosen
+	})]
+
+#SET{datas,#GET{mots}|array_flip}
+[(#SAISIE{selection_multiple,mots,
+	label=<:dei_belgique:label_mots:>,
+	datas=#GET{datas},
+	option_intro=<:dei_belgique:tout:>,
+	class=chosen
+	})]
+
