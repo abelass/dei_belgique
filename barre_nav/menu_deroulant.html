@@ -12,9 +12,11 @@
                     </BOUCLE_sous_rubriques>
                 </ul>
                 </B_sous_rubriques>
-                [(#COMPOSITION|=={outils_pedagogique})
-	                <li class="item menu-entree[ (#EXPOSE)][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]"><a href="[(#SELF|parametre_url{par,annee})]"><:dei_belgique:par_annee:></a></li>
-	                <li class="item menu-entree[ (#EXPOSE)][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]"><a href="[(#SELF|parametre_url{par,theme})]"><:dei_belgique:par_theme:></a></li>
+                [(#COMPOSITION|=={outils_pedagogique}|oui)
+                <ul>
+	                <li class="item menu-entree[ (#ENV{par}|=={annee}|oui)on][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]"><a href="[(#SELF|parametre_url{par,annee})]"><:dei_belgique:par_annee:></a></li>
+	                <li class="item menu-entree[ (#ENV{par}|=={theme}|oui)on][(#COMPTEUR_BOUCLE|=={1}|oui) first][(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui) last]"><a href="[(#SELF|parametre_url{par,theme})]"><:dei_belgique:par_theme:></a></li>
+	              </ul>
                 ]
                 <//B_sous_rubriques>
             </li>
