@@ -3,7 +3,7 @@
 <BOUCLE_rubriques(RUBRIQUES){id_rubrique IN #ENV{rubriques}} {par num titre}>
 	<B_articles_rubriques>
 	#SET{rubriques,#GET{rubriques}|array_merge{#ARRAY{#TITRE,#ID_RUBRIQUE}}}
-	<BOUCLE_articles_rubriques(ARTICLES) {recherche?} {id_rubrique IN #ENV{rubriques}} {where?} {id_rubrique}> </BOUCLE_articles_rubriques>
+	<BOUCLE_articles_rubriques(ARTICLES) {recherche?} {id_rubrique} {where?} {id_rubrique}> </BOUCLE_articles_rubriques>
 </BOUCLE_rubriques>
 
 #SET{mots,#ARRAY}
