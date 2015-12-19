@@ -39,10 +39,10 @@
 </ul>
 <script type="text/javascript">
 $(function() {
-$("#champ_rubriques").change(function(event) {
-	variables();
-	ajaxReload('recherche_champs', {
-		args : {
+	$("#champ_rubriques").change(function(event) {
+		variables();
+		ajaxReload('recherche_champs', {
+			args : {
 				_rubriques : rubriques,
 				rubriques : rubriques,
 				id_mot : mots,
@@ -50,10 +50,11 @@ $("#champ_rubriques").change(function(event) {
 			}
 		});
 	});
-$("#champ_mots").change(function(event) {
-	variables();
-	ajaxReload('recherche_champs', {
-		args : {
+	
+	$("#champ_mots").change(function(event) {
+		variables();
+		ajaxReload('recherche_champs', {
+			args : {
 				_rubriques : rubriques,
 				rubriques : rubriques,
 				id_mot : mots,
@@ -72,7 +73,7 @@ function variables(){
 	$("option:selected", $('#champ_mots')).each(function() {
 		mots.push($(this).val());
 	});	
-	if (!jQuery.inArray('all', rubriques ))rubriques = [];
-	if (!jQuery.inArray('all', mots ))mots = [];	
+	if (!jQuery.inArray('all', rubriques )) rubriques = [];
+	if (!jQuery.inArray('all', mots )) mots = [];	
 }
 </script>
