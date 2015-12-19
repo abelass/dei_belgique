@@ -36,7 +36,32 @@ function formulaires_recherche_documents_charger_dist($id, $options){
 		}
 	}
 
-	
+	if (is_array($mots) AND array_sum($mots)>0 AND !in_array('all',$mots)){
+		
+		$where = "objet = 'article' AND (";
+		$i = 0;
+		$total = count($mots);
+		foreach ($mots as $mot) {
+			$i++;
+			$where .= "id_mot = $mot";
+			if ($i != $total) $where .= " AND ";
+		}
+		$where .= ")";
+		
+		$sql = sql_select("id_objet",'spip_mots_liens',$where);
+		
+		$articles = array();
+
+		while ($data = sql_fetch($sql)){
+
+			$articles[] = $data['id_objet'];
+
+		}
+		if (count($articles) > 0) {
+			$valeurs['where'] = 'id_article IN (' . implode(',',$articles) . ')';
+		}
+		else $valeurs['where'] = 'id_article = 0';
+	}
 	return $valeurs;
 }
 ?>

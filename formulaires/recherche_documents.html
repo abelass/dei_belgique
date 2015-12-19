@@ -6,7 +6,7 @@
 					<label for="recherche"><:info_rechercher_02:></label>
 					<input type="[(#HTML5|?{search,text})]" class="search text" size="10" name="recherche" id="recherche"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off"/>
 				</li>
-				<INCLURE{fond=formulaires/inc-recherche_documents_champs,env,rubriques=#ENV**{_rubriques_sel},ajax=recherche_champs}/>
+				<INCLURE{fond=formulaires/inc-recherche_documents_champs,env,where='',rubriques=#ENV**{_rubriques_sel},ajax=recherche_champs}/>
 			</ul>
 			<p class="boutons">
 				<input type="submit" class="submit" value="<:info_rechercher:>" />
@@ -17,7 +17,7 @@
 				#ANCRE_PAGINATION
 				<h2><:articles:> (#GRAND_TOTAL)</h2>
 				<ul class="spip">
-					<BOUCLE_articles(ARTICLES) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?} {!par points} {pagination 20}>
+					<BOUCLE_articles(ARTICLES) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?}{!par points} {pagination 20}>
 					<li>
 						<a href="#URL_ARTICLE">#TITRE</a>
 						<BOUCLE_titre(RUBRIQUES){id_rubrique}>
