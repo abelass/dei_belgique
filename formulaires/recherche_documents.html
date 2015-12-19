@@ -1,13 +1,7 @@
 <div class="formulaire_spip formulaire_documents" id="formulaire_recherche_documents">
 	<form action="#URL_RUBRIQUE{#RUBRIQUE}" method="get">
 		<div>
-			<ul class="editer-groupe">
-				<li class="editer editer_recherche">
-					<label for="recherche"><:info_rechercher_02:></label>
-					<input type="[(#HTML5|?{search,text})]" class="search text" size="10" name="recherche" id="recherche"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off"/>
-				</li>
-				<INCLURE{fond=formulaires/inc-recherche_documents_champs,env,where='',rubriques=#ENV**{_rubriques_sel},ajax=recherche_champs}/>
-			</ul>
+			<INCLURE{fond=formulaires/inc-recherche_documents_champs,env,rubriques=#ENV**{_rubriques_sel},ajax=recherche_champs}/>
 			<p class="boutons">
 				<input type="submit" class="submit" value="<:info_rechercher:>" />
 			</p>
@@ -15,18 +9,20 @@
 			<B_articles>
 			<div class="menu menu_articles">
 				#ANCRE_PAGINATION
-				<h2><:articles:> (#GRAND_TOTAL)</h2>
-				<ul class="spip">
-					<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}}  {where?}{!par points} {pagination 20}>
+				<h2><:dei_belgique:documents:> (#GRAND_TOTAL)</h2>
+				<ul class="liste-items">
+					<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}}  {where?}{par titre} {pagination 20}>
 					<li>
-						<a href="#URL_ARTICLE">#TITRE</a>
+						<h3><a href="#URL_ARTICLE">#TITRE</a></h3>
 						<BOUCLE_titre(RUBRIQUES){id_rubrique}>
-							<h2 class="surtitre"><:rubrique:> : #TITRE</h2>
+							<div><:dei_belgique:label_categories:> #TITRE</div>
 						</BOUCLE_titre>
-						<BOUCLE_mot(MOTS){id_article}{'/'}>
-							[<a href="#URL_MOT">(#TITRE)</a>]
-						</BOUCLE_mot>
-						[<p>(#TEXTE|recherche_avancee_google_like{#INTRODUCTION})</p>]
+						<B_mot>
+						<div><:dei_belgique:label_themes:>
+						<BOUCLE_mot(MOTS){id_article}{', '}>#TITRE</BOUCLE_mot>
+						</div>
+						</B_mot>
+						[<div>(#TEXTE|recherche_avancee_google_like{#INTRODUCTION})</div>]
 					</li>
 					</BOUCLE_articles>
 				</ul>
@@ -36,3 +32,4 @@
 		</div>
 	</form>
 </div>
+

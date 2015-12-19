@@ -12,11 +12,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// D
 	'dei_belgique_titre' => 'DCI Belgium',
+	'documents' => 'Documents',
 
 	// I
 	'inscription_newsletter' => 'Inscrivez-vous à la newsletter DEI',
 
 	// L
+	'label_categories' => 'Catégories :',
+	'label_themes' => 'Thèmes :',
 	'latest_news' => 'Dernières Nouvelles',
 
 	// P

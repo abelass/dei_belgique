@@ -24,6 +24,7 @@
 	<necessite nom="menuder" compatibilite="[2.2.0;]" />
 	<necessite nom="newsletters" compatibilite="[1.3.14;]" />
 	<necessite nom="selection_objet" compatibilite="[1.10.2;]" />
+	<necessite nom="chosen" compatibilite="[1.6.0;]" />
 	
 	<lib nom="nivoslider" lien="http://www.jqueryscript.net/download/nivo-slider.zip" />
 
