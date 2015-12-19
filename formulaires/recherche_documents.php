@@ -33,7 +33,6 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 			$rubriques = array();
 			while ($data = sql_fetch($sql)) {
 				$rubriques[] = $data['id_rubrique'];
-				
 			}
 			$valeurs['_rubriques'] = $rubriques;
 			$valeurs['parent'] = TRUE;
