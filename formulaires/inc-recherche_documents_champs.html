@@ -1,23 +1,23 @@
-#SET{rubriques,#ARRAY}
-
-<BOUCLE_rubriques(RUBRIQUES){id_rubrique IN #ENV{rubriques}} {par num titre}>
-	<B_articles_rubriques>
+#SET{label_all,(#VAL{dei_belgique:tout}|_T)}
+#SET{rubriques,#ARRAY{#GET{label_all},all}}
+<BOUCLE_rubriques(RUBRIQUES){id_parent =#ENV{rubrique}} {par num titre}>
 	#SET{rubriques,#GET{rubriques}|array_merge{#ARRAY{#TITRE,#ID_RUBRIQUE}}}
-	<BOUCLE_articles_rubriques(ARTICLES) {recherche?} {id_rubrique} {where?} {id_rubrique}> </BOUCLE_articles_rubriques>
+	<B_articles_rubriques>
+	<BOUCLE_articles_rubriques(ARTICLES) {recherche?} {id_rubrique} {id_rubrique IN #ENV{_rubriques}} {where?} {id_rubrique}> </BOUCLE_articles_rubriques>
 </BOUCLE_rubriques>
 
-#SET{mots,#ARRAY}
+#SET{mots,#ARRAY{#GET{label_all},all}}
 <BOUCLE_mots(MOTS){id_groupe = 1} {par num titre}>
 	<B_articles_mots>
 	#SET{mots,#GET{mots}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
-	<BOUCLE_articles_mots(ARTICLES) {recherche?} {id_rubrique IN #ENV{rubriques}} {where?} {id_mot}> </BOUCLE_articles_mots>
+	<BOUCLE_articles_mots(ARTICLES) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?} {id_mot}> </BOUCLE_articles_mots>
 </BOUCLE_mots>
 
 #SET{datas,#GET{rubriques}|array_flip}
 [(#SAISIE{selection_multiple,rubriques,
 	label=<:dei_belgique:label_rubriques:>,
 	datas=#GET{datas},
-	option_intro=<:dei_belgique:tout:>,
+	cacher_option_intro=oui,
 	class=chosen
 	})]
 
@@ -25,7 +25,7 @@
 [(#SAISIE{selection_multiple,mots,
 	label=<:dei_belgique:label_mots:>,
 	datas=#GET{datas},
-	option_intro=<:dei_belgique:tout:>,
+	cacher_option_intro=oui,
 	class=chosen
 	})]
 

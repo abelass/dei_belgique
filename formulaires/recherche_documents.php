@@ -13,22 +13,35 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  */
 function formulaires_recherche_documents_charger_dist($id, $options){
 	$rubriques = _request('rubriques');
-	$r = (count($rubriques)>0) ? $rubriques : $id;
+	$mots = _request('mots') ? _request('mots') : array();
 	$valeurs = array(
 		"recherche" => _request('recherche'),
-		"rubriques" => $rubriques  ? $rubriques : $id,
 		"par" => _request('par'),
 		'mots' => _request('mots'),
-	);
-	if (isset($options['parents']) AND !$r) {
-		$sql = sql_select('id_rubrique,titre','spip_rubriques','id_parent=' . $id);
-		$rubriques = array();
-		while ($data = sql_fetch($sql)) {
-			$rubriques[] = $data['id_rubrique'];
+		'rubrique' => $id,
+		);
+	$clear = array();
+	if (isset($options['parents'])) {
+		if (is_array($rubriques) AND array_sum($rubriques)>0 AND !in_array('all',$rubriques)){
+			$valeurs['_rubriques'] = $rubriques;
+			$valeurs['_rubriques_sel'] = $rubriques;
 		}
-		$valeurs['rubriques'] = $rubriques;
+		else {
+			$sql = sql_select('id_rubrique,titre','spip_rubriques','id_parent=' . $id);
+			$rubriques = array();
+			while ($data = sql_fetch($sql)) {
+				$rubriques[] = $data['id_rubrique'];
+				
+			}
+			$valeurs['_rubriques'] = $rubriques;
+			if (in_array('all',$rubriques)) $clear['rubriques'] = TRUE;
+		}
 	}
 
+	if (in_array('all',$mots)) $clear['mots'] = TRUE;
+	
+	$valeurs['clear'] = $valeurs;
+	
 	return $valeurs;
 }
 ?>
