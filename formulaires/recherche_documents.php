@@ -20,7 +20,6 @@ function formulaires_recherche_documents_charger_dist($id, $options){
 		'mots' => _request('mots'),
 		'rubrique' => $id,
 		);
-	$clear = array();
 	if (isset($options['parents'])) {
 		if (is_array($rubriques) AND array_sum($rubriques)>0 AND !in_array('all',$rubriques)){
 			$valeurs['_rubriques'] = $rubriques;
@@ -34,13 +33,9 @@ function formulaires_recherche_documents_charger_dist($id, $options){
 				
 			}
 			$valeurs['_rubriques'] = $rubriques;
-			if (in_array('all',$rubriques)) $clear['rubriques'] = TRUE;
 		}
 	}
 
-	if (in_array('all',$mots)) $clear['mots'] = TRUE;
-	
-	$valeurs['clear'] = $valeurs;
 	
 	return $valeurs;
 }
