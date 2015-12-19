@@ -20,11 +20,14 @@ function formulaires_recherche_documents_charger_dist($id, $options){
 		'mots' => _request('mots'),
 		'rubrique' => $id,
 		);
+	// Si le scope sousrubriques
 	if (isset($options['parents'])) {
+		// Si recherche sur rubriques déterminés on le retournes
 		if (is_array($rubriques) AND array_sum($rubriques)>0 AND !in_array('all',$rubriques)){
 			$valeurs['_rubriques'] = $rubriques;
 			$valeurs['_rubriques_sel'] = $rubriques;
 		}
+		// sinon on recherche les sousrubriques
 		else {
 			$sql = sql_select('id_rubrique,titre','spip_rubriques','id_parent=' . $id);
 			$rubriques = array();
@@ -36,6 +39,7 @@ function formulaires_recherche_documents_charger_dist($id, $options){
 		}
 	}
 
+	// Si recherche sur mots déterminés on établis les articles correspondants
 	if (is_array($mots) AND array_sum($mots)>0 AND !in_array('all',$mots)){
 		
 		$where = "objet = 'article' AND (";
@@ -53,10 +57,9 @@ function formulaires_recherche_documents_charger_dist($id, $options){
 		$articles = array();
 
 		while ($data = sql_fetch($sql)){
-
 			$articles[] = $data['id_objet'];
-
 		}
+		
 		if (count($articles) > 0) {
 			$valeurs['where'] = 'id_article IN (' . implode(',',$articles) . ')';
 		}
