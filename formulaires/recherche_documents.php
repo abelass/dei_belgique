@@ -11,7 +11,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * @param string $class Une class différenciant le formulaire
  * @return array
  */
-function formulaires_recherche_documents_charger_dist($id, $options){
+function formulaires_recherche_documents_charger_dist($id, $options=array()){
 	$rubriques = _request('rubriques');
 	$mots = _request('mots') ? _request('mots') : array();
 	$valeurs = array(
@@ -36,7 +36,11 @@ function formulaires_recherche_documents_charger_dist($id, $options){
 				
 			}
 			$valeurs['_rubriques'] = $rubriques;
+			$valeurs['parent'] = TRUE;
 		}
+	}
+	else{
+		$valeurs['_rubriques'] = $id;
 	}
 
 	// Si recherche sur mots déterminés on établis les articles correspondants
