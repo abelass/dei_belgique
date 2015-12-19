@@ -17,7 +17,7 @@
 				#ANCRE_PAGINATION
 				<h2><:articles:> (#GRAND_TOTAL)</h2>
 				<ul class="spip">
-					<BOUCLE_articles(ARTICLES) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?}{!par points} {pagination 20}>
+					<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}}  {where?}{!par points} {pagination 20}>
 					<li>
 						<a href="#URL_ARTICLE">#TITRE</a>
 						<BOUCLE_titre(RUBRIQUES){id_rubrique}>

@@ -42,22 +42,24 @@ function formulaires_recherche_documents_charger_dist($id, $options){
 	// Si recherche sur mots déterminés on établis les articles correspondants
 	if (is_array($mots) AND array_sum($mots)>0 AND !in_array('all',$mots)){
 		
-		$where = "objet = 'article' AND (";
+		$where = "";
 		$i = 0;
 		$total = count($mots);
+		
 		foreach ($mots as $mot) {
 			$i++;
-			$where .= "id_mot = $mot";
+			$where .= "(L$i.id_mot = $mot)";
+			$join .= "  JOIN spip_mots_liens AS L$i ON ( L$i.id_objet = articles.id_article AND L$i.objet='article') ";
 			if ($i != $total) $where .= " AND ";
 		}
-		$where .= ")";
+
 		
-		$sql = sql_select("id_objet",'spip_mots_liens',$where);
+		$sql = sql_select("id_article","spip_articles AS articles LEFT JOIN  spip_mots_liens AS mots ON articles.id_article=mots.id_objet AND mots.objet='article'",'id_mot IN (' . implode(',',$mots) . ')');
 		
 		$articles = array();
 
 		while ($data = sql_fetch($sql)){
-			$articles[] = $data['id_objet'];
+			$articles[] = $data['id_article'];
 		}
 		
 		if (count($articles) > 0) {
