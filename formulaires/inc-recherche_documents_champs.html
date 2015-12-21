@@ -4,14 +4,14 @@
 <BOUCLE_rubriques(RUBRIQUES){id_parent =#ENV{rubrique}} {par num titre} {si #ENV{parent}|oui}>
 	<B_articles_rubriques>
 		#SET{rubriques,#GET{rubriques}|array_merge{#ARRAY{#TITRE,#ID_RUBRIQUE}}}
-	<BOUCLE_articles_rubriques(ARTICLES) {recherche?} {fusion id_article} {id_rubrique}{id_mot?}> </BOUCLE_articles_rubriques>
+	<BOUCLE_articles_rubriques(ARTICLES) {recherche?} {id_rubrique}{id_mot?}{0,1}> </BOUCLE_articles_rubriques>
 </BOUCLE_rubriques>
 
 #SET{mots,#ARRAY{}}
 <BOUCLE_mots(MOTS){id_groupe = 1} {par num titre}>
 	<B_articles_mots>
 	#SET{mots,#GET{mots}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
-	<BOUCLE_articles_mots(ARTICLES) {id_mot}{recherche?} {fusion id_article} {id_rubrique IN #ENV{_rubriques}}> </BOUCLE_articles_mots>
+	<BOUCLE_articles_mots(ARTICLES) {id_mot}{recherche?}{id_rubrique IN #ENV{_rubriques}}{0,1}> </BOUCLE_articles_mots>
 </BOUCLE_mots>
 
 <ul class="editer-groupe">
