@@ -1,7 +1,19 @@
 <div class="formulaire_spip formulaire_documents" id="formulaire_recherche_documents">
 	<form action="#SELF" method="post">
 		<div>
-			<INCLURE{fond=formulaires/inc-recherche_documents_champs,env,rubriques=#ENV**{_rubriques_sel},ajax=recherche_champs}/>
+			<ul class="editer-groupe">
+				<li class="editer editer_recherche">
+					<label for="recherche"><:info_rechercher_02:></label>
+					<input type="[(#HTML5|?{search,text})]" class="search text" size="10" name="recherche" id="recherche"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off"/>
+				</li>
+				[(#ENV{parent}|oui)
+				<li>
+						<INCLURE{fond=formulaires/inc-recherche_documents_rubriques,env,rubriques=#ENV**{_rubriques_sel},ajax=recherche_rubriques}/>
+				</li>]
+				<li>
+						<INCLURE{fond=formulaires/inc-recherche_documents_mots,env,rubriques=#ENV**{_rubriques_sel},ajax=recherche_mots}/>
+				</li>>
+			
 			<p class="boutons">
 				<input type="submit" class="submit" value="<:info_rechercher:>" />
 			</p>
@@ -11,7 +23,7 @@
 				#ANCRE_PAGINATION
 				<h2><:dei_belgique:documents:> (#GRAND_TOTAL)</h2>
 				<ul class="liste-items">
-					<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}}  {where?}{par titre} {pagination 20}>
+					<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?}{par titre} {pagination 20}>
 					<li>
 						<h3><a href="#URL_ARTICLE">#TITRE</a></h3>
 						<BOUCLE_titre(RUBRIQUES){id_rubrique}>
@@ -33,3 +45,46 @@
 	</form>
 </div>
 
+<script type="text/javascript">
+$(function() {
+	var parent = '#ENV{parent}'
+	$("#champ_rubriques").change(function(event) {
+		variables();
+		ajaxReload('recherche_mots', {
+			args : {
+				_rubriques : rubriques,
+				rubriques : rubriques,
+				id_mot : mots,
+				mots : mots,
+				parent : parent,
+			}
+		});
+	});
+	
+	$("#champ_mots").change(function(event) {
+		variables();
+		ajaxReload('recherche_rubriques', {
+			args : {
+				_rubriques : rubriques,
+				rubriques : rubriques,
+				id_mot : mots,
+				mots : mots,
+				parent : parent,
+			}
+		});
+	});
+});
+
+function variables(){
+	rubriques = [];
+	mots = [];
+	$("option:selected", $('#champ_rubriques')).each(function() {
+		rubriques.push($(this).val());
+	});
+	$("option:selected", $('#champ_mots')).each(function() {
+		mots.push($(this).val());
+	});	
+	if (!jQuery.inArray('all', rubriques )) rubriques = [];
+	if (!jQuery.inArray('all', mots )) mots = [];	
+}
+</script>
