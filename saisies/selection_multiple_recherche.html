@@ -29,7 +29,7 @@
 #SET{valeur, #ENV{valeur}|saisies_valeur2tableau}
 
 <select name="#ENV{nom}[]" id="champ_[(#ENV{id,#ENV{nom}}|saisie_nom2classe)]" multiple="multiple"[ class="(#ENV{class})"][ disabled="(#ENV{disable})"][ size="(#ENV{size,10})"][ (#ENV*{attributs})]>
-<option value="all"><:dei_belgique:tout:></option>]
+<option value="all"><:dei_belgique:tout:></option>
 <BOUCLE_selection(DATA){source tableau, #GET{datas}} {par valeur}>
 	<B_cond>
 	<optgroup label="#CLE">
