@@ -35,16 +35,16 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 				$rubriques[] = $data['id_rubrique'];
 			}
 			$valeurs['_rubriques'] = $rubriques;
-			$valeurs['parent'] = TRUE;
 		}
+		$valeurs['parent'] = TRUE;
 	}
 	else{
 		$valeurs['_rubriques'] = $id;
 	}
 
 	// Si recherche sur mots déterminés on établis les articles correspondants
-	if (is_array($mots) AND array_sum($mots)>0 AND !in_array('all',$mots)){
-	/* Si AND critère		
+	/*if (is_array($mots) AND array_sum($mots)>0 AND !in_array('all',$mots)){
+	 Si AND critère		
 		$where = "";
 		$i = 0;
 		$total = count($mots);
@@ -68,8 +68,8 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 		if (count($articles) > 0) {
 			$valeurs['where'] = 'id_article IN (' . implode(',',$articles) . ')';
 		}
-		else $valeurs['where'] = 'id_article = 0';*/
-	}
+		else $valeurs['where'] = 'id_article = 0';
+	}*/
 	return $valeurs;
 }
 ?>
