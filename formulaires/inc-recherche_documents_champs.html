@@ -39,6 +39,7 @@
 </ul>
 <script type="text/javascript">
 $(function() {
+	var parent = '#ENV{parent}'
 	$("#champ_rubriques").change(function(event) {
 		variables();
 		ajaxReload('recherche_champs', {
@@ -47,6 +48,7 @@ $(function() {
 				rubriques : rubriques,
 				id_mot : mots,
 				mots : mots,
+				parent : parent,
 			}
 		});
 	});
@@ -59,6 +61,7 @@ $(function() {
 				rubriques : rubriques,
 				id_mot : mots,
 				mots : mots,
+				parent : parent,
 			}
 		});
 	});
