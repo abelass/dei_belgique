@@ -57,7 +57,7 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 		}*/
 
 		
-		$sql = sql_select("id_article","spip_articles AS articles LEFT JOIN  spip_mots_liens AS mots ON articles.id_article=mots.id_objet AND mots.objet='article'",'id_mot IN (' . implode(',',$mots) . ')','id_article');
+		/*$sql = sql_select("id_article","spip_articles AS articles LEFT JOIN  spip_mots_liens AS mots ON articles.id_article=mots.id_objet AND mots.objet='article'",'id_mot IN (' . implode(',',$mots) . ')','id_article');
 		
 		$articles = array();
 
@@ -68,7 +68,7 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 		if (count($articles) > 0) {
 			$valeurs['where'] = 'id_article IN (' . implode(',',$articles) . ')';
 		}
-		else $valeurs['where'] = 'id_article = 0';
+		else $valeurs['where'] = 'id_article = 0';*/
 	}
 	return $valeurs;
 }
