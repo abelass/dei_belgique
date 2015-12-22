@@ -2,17 +2,17 @@
 	<form action="#SELF" method="post">
 		<div>
 			<ul class="editer-groupe">
-				<li class="editer editer_recherche">
+				<li class="editer editer_recherche main">
 					<label for="recherche"><:info_rechercher_02:></label>
 					<input type="[(#HTML5|?{search,text})]" class="search text" size="10" name="recherche" id="recherche"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off"/>
 				</li>
 				[(#ENV{parent}|oui)
-				<li>
+				<li class="main">
 						<INCLURE{fond=formulaires/inc-recherche_documents_rubriques,env,rubriques=#ENV**{_rubriques_sel},ajax=recherche_rubriques}/>
 				</li>]
-				<li>
+				<li class="main">
 						<INCLURE{fond=formulaires/inc-recherche_documents_mots,env,rubriques=#ENV**{_rubriques_sel},ajax=recherche_mots}/>
-				</li>>
+				</li>
 			
 			<p class="boutons">
 				<input type="submit" class="submit" value="<:info_rechercher:>" />
@@ -48,7 +48,7 @@
 <script type="text/javascript">
 $(function() {
 	var parent = '#ENV{parent}'
-	$("#champ_rubriques").change(function(event) {
+	$(document).on('change','#champ_rubriques',function(event) {
 		variables();
 		ajaxReload('recherche_mots', {
 			args : {
@@ -61,7 +61,7 @@ $(function() {
 		});
 	});
 	
-	$("#champ_mots").change(function(event) {
+	$(document).on('change','#champ_mots',function(event) {
 		variables();
 		ajaxReload('recherche_rubriques', {
 			args : {
