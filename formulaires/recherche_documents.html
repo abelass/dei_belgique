@@ -72,6 +72,7 @@ $(function() {
 				parent : parent,
 			}
 		});
+
 	});
 });
 
@@ -84,7 +85,29 @@ function variables(){
 	$("option:selected", $('#champ_mots')).each(function() {
 		mots.push($(this).val());
 	});	
-	if (!jQuery.inArray('all', rubriques )) rubriques = [];
-	if (!jQuery.inArray('all', mots )) mots = [];	
+	if (!jQuery.inArray('all', rubriques )) {
+		ajaxReload('recherche_rubriques', {
+			args : {
+				_rubriques : '',
+				rubriques : '',
+				id_mot : mots,
+				mots :mots,
+				parent : parent,
+			}
+		});
+		rubriques = [];
+	}
+	if (!jQuery.inArray('all', mots )) {
+		ajaxReload('recherche_mots', {
+			args : {
+				_rubriques : rubriques,
+				rubriques : rubriques,
+				id_mot : mots,
+				mots :'',
+				parent : parent,
+			}
+		});
+		mots = [];
+	}
 }
 </script>
