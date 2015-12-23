@@ -9,14 +9,14 @@
 			(#ID_TRAD|in_array{#LISTE{8,7,9}}|non)
 			<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 		</header>]
-
-
 		[
 		<div class="#EDIT{texte} chapo">
 			(#TEXTE)
 		</div>]
 		<BOUCLE_documentation(RUBRIQUES){id_trad=33}{lang}>
-			[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_RUBRIQUE,#ARRAY{parents,oui}})]	
+		<div class="ajax">
+			[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_RUBRIQUE,#ARRAY{parents,oui}})]
+		</div>
 		</BOUCLE_documentation>
 	[
 	<footer class="notes">
