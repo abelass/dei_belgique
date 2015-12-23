@@ -12,7 +12,8 @@ $(function() {
 				rubriques : rubriques,
 				id_mot : mots,
 				mots : mots,
-			}
+			},
+			cache:false
 		});
 	});
 	
@@ -25,7 +26,8 @@ $(document).on('change','#champ_mots',function(event) {
 				rubriques : rubriques,
 				id_mot : mots,
 				mots : mots,
-			}
+			},
+			cache:false
 		});
 	});
 });
@@ -59,7 +61,8 @@ function variables(){
 				rubriques : rubriques,
 				id_mot : mots,
 				mots :'',
-			}
+			},
+			cache:false
 		});
 		mots = [];
 	}
