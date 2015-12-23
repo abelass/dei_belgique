@@ -18,6 +18,7 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 		"recherche" => _request('recherche'),
 		"par" => _request('par'),
 		'mots' => _request('mots'),
+		'_mots' => _request('mots'),
 		'rubrique' => $id,
 		);
 	// Si le scope sousrubriques
@@ -43,8 +44,8 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 	}
 
 	// Si recherche sur mots déterminés on établis les articles correspondants
-	/*if (is_array($mots) AND array_sum($mots)>0 AND !in_array('all',$mots)){
-	 Si AND critère		
+	if (is_array($mots) AND array_sum($mots)>0 AND !in_array('all',$mots)){
+	 /*
 		$where = "";
 		$i = 0;
 		$total = count($mots);
@@ -57,7 +58,7 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 		}*/
 
 		
-		/*$sql = sql_select("id_article","spip_articles AS articles LEFT JOIN  spip_mots_liens AS mots ON articles.id_article=mots.id_objet AND mots.objet='article'",'id_mot IN (' . implode(',',$mots) . ')','id_article');
+		$sql = sql_select("id_article","spip_articles AS articles LEFT JOIN  spip_mots_liens AS mots ON articles.id_article=mots.id_objet AND mots.objet='article'",'id_mot IN (' . implode(',',$mots) . ')','id_article');
 		
 		$articles = array();
 
@@ -69,7 +70,7 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 			$valeurs['where'] = 'id_article IN (' . implode(',',$articles) . ')';
 		}
 		else $valeurs['where'] = 'id_article = 0';
-	}*/
+	}
 	return $valeurs;
 }
 ?>
