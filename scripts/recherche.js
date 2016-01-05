@@ -4,7 +4,7 @@
 
 // Charge le champ rubriques
 $(function() {
-	$(document).on('change','#champ_rubriques',function(event) {
+	$(document).on('change', '#champ_rubriques', function(event) {
 		variables('#champ_rubriques');
 		ajaxReload('recherche_mots', {
 			args : {
@@ -13,13 +13,13 @@ $(function() {
 				id_mot : mots,
 				mots : mots,
 			},
-			cache:false
+			cache : false
 		});
 	});
-	
-// Charge le champ mots
 
-	$(document).on('change','#champ_mots',function(event) {
+	// Charge le champ mots
+
+	$(document).on('change', '#champ_mots', function(event) {
 		variables('#champ_mots');
 		ajaxReload('recherche_rubriques', {
 			args : {
@@ -28,13 +28,13 @@ $(function() {
 				id_mot : mots,
 				mots : mots,
 			},
-			cache:false
+			cache : false
 		});
 	});
 });
 
 // Compose les variables
-function variables(selector){
+function variables(selector) {
 	rubriques = [];
 	mots = [];
 	$("option:selected", $('#champ_rubriques')).each(function() {
@@ -42,20 +42,18 @@ function variables(selector){
 	});
 	$("option:selected", $('#champ_mots')).each(function() {
 		mots.push($(this).val());
-	});	
-	console.log(rubriques );
-	if (!jQuery.inArray('all', rubriques )) {
-console.log('ok');
-    $(selector +" option:selected" ).each(function() {
-      $(this).removeAttr('selected').trigger('chosen:updated');
-    });
+	});
+	console.log(rubriques);
+	if (!jQuery.inArray('all', rubriques)) {
+		$(selector + " option:selected").each(function() {
+			$(this).removeAttr('selected').trigger('chosen:updated');
+		});
 		rubriques = [];
 	}
-	if (!jQuery.inArray('all', mots )) {
-    $(selector +" option:selected" ).each(function() {
-    	//console.log(this);
-      $(this).removeAttr('selected').trigger('chosen:updated');
-    });
+	if (!jQuery.inArray('all', mots)) {
+		$(selector + " option:selected").each(function() {
+			$(this).removeAttr('selected').trigger('chosen:updated');
+		});
 		mots = [];
 	}
 }
