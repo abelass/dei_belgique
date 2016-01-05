@@ -43,13 +43,14 @@ function variables(selector) {
 	$("option:selected", $('#champ_mots')).each(function() {
 		mots.push($(this).val());
 	});
-	console.log(rubriques);
+	
 	if (!jQuery.inArray('all', rubriques)) {
 		$(selector + " option:selected").each(function() {
 			$(this).removeAttr('selected').trigger('chosen:updated');
 		});
 		rubriques = [];
 	}
+	
 	if (!jQuery.inArray('all', mots)) {
 		$(selector + " option:selected").each(function() {
 			$(this).removeAttr('selected').trigger('chosen:updated');
