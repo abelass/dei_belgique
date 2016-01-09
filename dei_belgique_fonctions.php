@@ -72,7 +72,7 @@ function recherche_avancee_google_like($string, $options=array()){
 				if ($string_re=='') {
 					$string_re = $wrapper;
 				}
-				$string_re .= " $avant<span class=spip_surligne>".$tab[$i][1]."</span>$apres $wrapper";
+				$string_re .= " $avant<span class='spip_surligne'>".$tab[$i][1]."</span>$apres $wrapper";
 			}
 		}
 	}
@@ -82,7 +82,7 @@ function recherche_avancee_google_like($string, $options=array()){
 		
 		foreach ($qt AS $t) {
 			$pattern[] =  "/$t/";
-			$replace[] = "<span class=spip_surligne>" . $t . "</span>";
+			$replace[] = "<span class='spip_surligne'>" . $t . "</span>";
 		}
 		
 		$string_re = preg_replace($pattern,$replace,$string);
