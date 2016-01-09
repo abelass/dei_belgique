@@ -11,15 +11,6 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-
-/*
- * Un fichier de fonctions permet de définir des éléments
- * systématiquement chargés lors du calcul des squelettes.
- *
- * Il peut par exemple définir des filtres, critères, balises, …
- * 
- */
-
 /*
  * Filtre pour afficher mettre en évidence le terme recherché
  * @param string $string le texte à parser
@@ -53,43 +44,51 @@ function recherche_avancee_google_like($string, $options=array()){
 	$query = rtrim(str_replace("+", " ", $rech));  
 
 	$qt = explode(" ", $query);
-
-	$num = count ($qt);
-
-	// $cc = ceil(55 / $num);
-
-	 $cc=$taille;
-
-
-	for ($i = 0; $i < $num; $i++) 
-
-	{
-		$tab[$i] = preg_split("/\b($qt[$i])/i",$string,2, PREG_SPLIT_DELIM_CAPTURE);
-
-		if (count($tab[$i])>1) {
-			// Chaine avant
-			if ($wrapper) {
+	if ($wrapper) {
+		
+		$num = count ($qt);
+	
+		// $cc = ceil(55 / $num);
+	
+		 $cc=$taille;
+	
+	
+		for ($i = 0; $i < $num; $i++) 
+	
+		{
+			$tab[$i] = preg_split("/\b($qt[$i])/i",$string,2, PREG_SPLIT_DELIM_CAPTURE);
+	
+			if (count($tab[$i])>1) {
+				// Chaine avant
 				$avant = substr($tab[$i][0],-$cc,$cc);
 				$mots = split(" ",$avant,2);
 				if (count($mots)>1) $avant = $mots[1];
-			}
-			else $avant = $tab[$i][0];
 
 			// Chaine apres
-			if ($wrapper) {
 				$apres = substr($tab[$i][2],0,$cc);
 				$apres = preg_replace('@(.+)\s\S+@s', '\1', $apres);
-			}
-			else $apres = $tab[$i][2];
 
-			// Concatener
-			if ($string_re=='') {
-				$string_re = $wrapper;
+				// Concatener
+				if ($string_re=='') {
+					$string_re = $wrapper;
+				}
+				$string_re .= " $avant<span class=spip_surligne>".$tab[$i][1]."</span>$apres $wrapper";
 			}
-			$string_re .= " $avant<span class=spip_surligne>".$tab[$i][1]."</span>$apres $wrapper";
 		}
 	}
-
+	else {
+		
+		$tab = preg_split("/\b($qt[$i])/i",$string,2, PREG_SPLIT_DELIM_CAPTURE);
+		$pattern = array();
+		$replace = array();
+		
+		foreach ($qt AS $t) {
+			$pattern[] =  "/$t/";
+			$replace[] = "<span class=spip_surligne>" . $t . "</span>";
+		}
+		
+		$string_re = preg_replace($pattern,$replace,$string);
+	}
 	// Si rien trouve : renvoyer les premiers mots en resume
 
 	if ($resume != '' AND $string_re == ''){
