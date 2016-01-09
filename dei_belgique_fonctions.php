@@ -78,9 +78,11 @@ function recherche_avancee_google_like($string, $options=array()){
 
 
 			// Chaine apres
-			if ($wrapper) $apres = substr($tab[$i][2],0,$cc);
+			if ($wrapper) {
+				$apres = substr($tab[$i][2],0,$cc);
+				$apres = preg_replace('@(.+)\s\S+@s', '\1', $apres);
+			}
 			else $apres = $tab[$i][2];
-			$apres = preg_replace('@(.+)\s\S+@s', '\1', $apres);
 
 			// Concatener
 			if ($string_re=='') {
@@ -93,7 +95,7 @@ function recherche_avancee_google_like($string, $options=array()){
 	// Si rien trouve : renvoyer les premiers mots en resume
 
 	if ($resume != '' AND $string_re == ''){
-		echo 'ok';
+
 		$mots = split(" ",$string,40);
 
 		for ($i = 0; $i < count($mots)-1; $i++)
