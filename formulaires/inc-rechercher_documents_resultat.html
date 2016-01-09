@@ -1,11 +1,11 @@
 <B_articles>
-	<div class="menu menu_articles">
+	<div class="menu menu_recherche">
 		#ANCRE_PAGINATION
 		<h2><:dei_belgique:documents:> (#GRAND_TOTAL)</h2>
 		<ul class="liste-items">
 			<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?}{par titre} {pagination 20}>
 			<li>
-				<h3><a href="#URL_ARTICLE">#TITRE</a></h3>
+				<h3><a href="#URL_ARTICLE">[(#TITRE|recherche_avancee_google_like)]</a></h3>
 				<BOUCLE_titre(RUBRIQUES){id_rubrique}>
 					<div><:dei_belgique:label_categories:> #TITRE</div>
 				</BOUCLE_titre>
@@ -14,7 +14,7 @@
 				<BOUCLE_mot(MOTS){id_article}{', '}>#TITRE</BOUCLE_mot>
 				</div>
 				</B_mot>
-				[<div>(#TEXTE|recherche_avancee_google_like{#INTRODUCTION})</div>]
+				[<div>(#TEXTE|recherche_avancee_google_like{#ARRAY{resume,#INTRODUCTION,wrapper,oui}})</div>]
 			</li>
 			</BOUCLE_articles>
 		</ul>
