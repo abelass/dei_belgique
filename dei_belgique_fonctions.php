@@ -77,7 +77,6 @@ function recherche_avancee_google_like($string, $options=array()){
 		}
 	}
 	else {
-		
 		$tab = preg_split("/\b($qt[$i])/i",$string,2, PREG_SPLIT_DELIM_CAPTURE);
 		$pattern = array();
 		$replace = array();
