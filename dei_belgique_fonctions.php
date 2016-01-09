@@ -75,8 +75,6 @@ function recherche_avancee_google_like($string, $options=array()){
 			}
 			else $avant = $tab[$i][0];
 
-
-
 			// Chaine apres
 			if ($wrapper) {
 				$apres = substr($tab[$i][2],0,$cc);

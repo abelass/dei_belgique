@@ -6,7 +6,7 @@
 	<ul class="liste-items">
 		<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?}{par titre} {pagination 20}>
 		<li>
-			<h3><a href="#URL_ARTICLE">[(#TITRE|recherche_avancee_google_like)]</a></h3>
+			<h3><a href="#URL_ARTICLE">[(#TITRE)]</a></h3>
 			<BOUCLE_titre(RUBRIQUES){id_rubrique}>
 				<div><:dei_belgique:label_categories:> #TITRE</div>
 			</BOUCLE_titre>
