@@ -1,21 +1,20 @@
 <BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
-
-
 	[(#ID_RUBRIQUE|=={1}|oui)#SET{home,oui}]
-
 	<article class="contenu-principal">
 		[
 		<header class="cartouche">
 			(#ID_TRAD|in_array{#LISTE{8,7,9}}|non)
 			<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 		</header>]
-                <BOUCLE_documentation(RUBRIQUES){id_trad=86}{lang}>
+      <BOUCLE_documentation(RUBRIQUES){id_trad=86}{lang}>
 			[(#ENV{par}|=={theme}|oui)
 				<div class="ajax">
 					[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_RUBRIQUE})]
 				</div>
 			]
-			[(#ENV{par}|=={annee}|oui)<INCLURE{fond=inclure/articles_annee,id_rubrique,env,ajax}/>]
+			[(#ENV{par}|=={annee}|oui)
+				<INCLURE{fond=inclure/articles_annee,id_rubrique,env,ajax}/>
+				]
 		</BOUCLE_documentation>
 		[(#ENV{par}|non)
 			<div class="main">
