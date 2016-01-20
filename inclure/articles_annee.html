@@ -1,8 +1,7 @@
 #SET{annecourante,#DATE|annee}
-
 	<B_article_annee1>
 		<div class="menu annee">
-		<BOUCLE_article_annee1(ARTICLES){id_rubrique}{annee_relatif<=0}{!par date}{0,1}>
+		<BOUCLE_article_annee1(ARTICLES){id_rubrique}{!par date}{0,1}>
 		[(#ENV{annee}|non)#SET{annecourante,#DATE|annee}]
 			<span class="date[(#ENV{annee,#GET{annecourante}}|=={#DATE|annee}|oui) on]">
 				<a class="ajax" href="[(#SELF|parametre_url{annee,[(#DATE|annee)]})]">[(#DATE|annee)]</a>
@@ -41,4 +40,3 @@
 			[<div class="pagination">(#PAGINATION)</div>]
 		</div>
 	</B_articles>
-
