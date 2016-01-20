@@ -9,15 +9,14 @@
 			(#ID_TRAD|in_array{#LISTE{8,7,9}}|non)
 			<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 		</header>]
-
-		<BOUCLE_teste(CONDITION) {si #ENV{par}|=={theme}}>
-			<BOUCLE_documentation(RUBRIQUES){id_trad=86}{lang}>
+                <BOUCLE_documentation(RUBRIQUES){id_trad=86}{lang}>
+			[(#ENV{par}|=={theme}|oui)
 				<div class="ajax">
 					[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_RUBRIQUE})]
-			</div>
-			</BOUCLE_documentation>
-		</BOUCLE_teste>
-		[(#ENV{par}|oui)<INCLURE{fond=inclure/articles_annee,id_trad=86,env,ajax}/>]
+				</div>
+			]
+			[(#ENV{par}|=={annee}|oui)<INCLURE{fond=inclure/articles_annee,id_rubrique,env,ajax}/>]
+		</BOUCLE_documentation>
 		[(#ENV{par}|non)
 			<div class="main">
 				<div class="#EDIT{texte} texte">
