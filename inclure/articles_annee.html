@@ -1,42 +1,43 @@
 #SET{annecourante,#DATE|annee}
-	<B_article_annee1>
-		<div class="menu annee">
-		<BOUCLE_article_annee1(ARTICLES){id_rubrique}{!par date}{0,1}>
-		[(#ENV{annee}|non)#SET{annecourante,#DATE|annee}]
+<B_article_annee1>
+	<div class="menu annee">
+	<BOUCLE_article_annee1(ARTICLES){id_rubrique}{!par date}{0,1}>
+	[(#ENV{annee}|non)#SET{annecourante,#DATE|annee}]
+		<span class="date[(#ENV{annee,#GET{annecourante}}|=={#DATE|annee}|oui) on]">
+			<a class="ajax" href="[(#SELF|parametre_url{annee,[(#DATE|annee)]})]">[(#DATE|annee)]</a>
+		</span>
+	<B_article_annee2>	
+			<BOUCLE_article_annee2(ARTICLES){id_rubrique}{!par date}{annee_relatif>0}{0,1}>
+			<span class="seperator"> | </span>
 			<span class="date[(#ENV{annee,#GET{annecourante}}|=={#DATE|annee}|oui) on]">
-				<a class="ajax" href="[(#SELF|parametre_url{annee,[(#DATE|annee)]})]">[(#DATE|annee)]</a>
+				<a class="ajax[(#ENV{mois}|=={[(#DATE|mois)]}|oui) on]" href="[(#SELF|parametre_url{annee,[(#DATE|annee)]})]">[(#DATE|annee)]</a>
 			</span>
-		<B_article_annee2>	
-				<BOUCLE_article_annee2(ARTICLES){id_rubrique}{!par date}{annee_relatif>0}{0,1}>
-				<span class="date[(#ENV{annee,#GET{annecourante}}|=={#DATE|annee}|oui) on]">
-					<a class="ajax[(#ENV{mois}|=={[(#DATE|mois)]}|oui) on]" href="[(#SELF|parametre_url{annee,[(#DATE|annee)]})]">[(#DATE|annee)]</a>
-				</span>
-				<BOUCLE_rec_mois(BOUCLE_article_annee2)> </BOUCLE_rec_mois>
-		</BOUCLE_article_annee2>
-		</BOUCLE_article_annee1>
-		</div>
-	</B_article_annee1>	
+			<BOUCLE_rec_mois(BOUCLE_article_annee2)> </BOUCLE_rec_mois>
+	</BOUCLE_article_annee2>
+	</BOUCLE_article_annee1>
+	</div>
+</B_article_annee1>	
 
-	<B_articles>
-		<div class="menu menu_recherche">
-			#ANCRE_PAGINATION
-			<h2><:dei_belgique:documents:> (#GRAND_TOTAL)</h2>
-			<ul class="liste-items">
-				<BOUCLE_articles(ARTICLES spip_mots_liens) {id_rubrique} {par titre} {annee=#ENV{annee,#GET{annecourante}}} {pagination 20}>
-				<li>
-					<h3><a href="#URL_ARTICLE">#TITRE</a></h3>
-					<BOUCLE_titre(RUBRIQUES){id_rubrique}>
-						<div><:dei_belgique:label_categories:> #TITRE</div>
-					</BOUCLE_titre>
-					<B_mot>
-					<div><:dei_belgique:label_themes:>
-					<BOUCLE_mot(MOTS){id_article}{', '}>#TITRE</BOUCLE_mot>
-					</div>
-					</B_mot>
-					[<div>(#INTRODUCTION)</div>]
-				</li>
-				</BOUCLE_articles>
-			</ul>
-			[<div class="pagination">(#PAGINATION)</div>]
-		</div>
-	</B_articles>
+<B_articles>
+	<div class="menu menu_recherche">
+		#ANCRE_PAGINATION
+		<h2><:dei_belgique:documents:> (#GRAND_TOTAL)</h2>
+		<ul class="liste-items">
+			<BOUCLE_articles(ARTICLES spip_mots_liens) {id_rubrique} {par titre} {annee=#ENV{annee,#GET{annecourante}}} {pagination 20}>
+			<li>
+				<h3><a href="#URL_ARTICLE">#TITRE</a></h3>
+				<BOUCLE_titre(RUBRIQUES){id_rubrique}>
+					<div><:dei_belgique:label_categories:> #TITRE</div>
+				</BOUCLE_titre>
+				<B_mot>
+				<div><:dei_belgique:label_themes:>
+				<BOUCLE_mot(MOTS){id_article}{', '}>#TITRE</BOUCLE_mot>
+				</div>
+				</B_mot>
+				[<div>(#INTRODUCTION)</div>]
+			</li>
+			</BOUCLE_articles>
+		</ul>
+		[<div class="pagination">(#PAGINATION)</div>]
+	</div>
+</B_articles>
