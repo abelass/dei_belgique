@@ -1,15 +1,16 @@
 #SET{urls,#ARRAY{}}
 <B_rubriques>
 	<div id="slider-container" class="theme-custom">
-		<ul id="slider" class="nivoSlider">
+		<div id="slider" class="nivoSlider">
 	<BOUCLE_rubriques(RUBRIQUES){id_parent}{tout}>#SET{urls,#GET{urls}|push{#URL_RUBRIQUE}}
-			<li class="counter_#COMPTEUR_BOUCLE">
-				<div class="inner">
-						[(#CHEMIN{images/slider_rub_#ID_TRAD.jpg}|image_reduire{940}|inserer_attribut{alt,#TITRE}|inserer_attribut{title,#counter#COMPTEUR_BOUCLE})]
-				</div>
-			</li>
+		[(#CHEMIN{images/slider_rub_#ID_TRAD.jpg}
+			|image_reduire{470}
+			|inserer_attribut{alt,#TITRE}
+			|inserer_attribut{title,#counter#COMPTEUR_BOUCLE}
+			|inserer_attribut{class,counter_#COMPTEUR_BOUCLE}
+		)]
 	</BOUCLE_rubriques>
-		</ul>
+		</div>
 	</div>
 </B_rubriques>
 <BOUCLE_caption(DATA){source tableau,#GET{urls}}>
