@@ -23,6 +23,10 @@
 	<necessite nom="chosen" compatibilite="[1.6.0;]" />
 	<necessite nom="typoenluminee" compatibilite="[3.5.6;]" />	
 	
+	<pipeline nom="porte_plume_barre_outils_pre_charger" inclure="dei_belgique_pipelines.php" />
+	<pipeline nom="porte_plume_barre_outils_pre_charger" inclure="dei_belgique_pipelines.php" />
+	<pipeline nom="porte_plume_porte_plume_lien_classe_vers_icone" inclure="dei_belgique_pipelines.php" />	
+	
 	<lib nom="nivoslider" lien="http://www.jqueryscript.net/download/nivo-slider.zip" />
 
 </paquet>
