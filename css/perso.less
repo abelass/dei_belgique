@@ -36,15 +36,26 @@ h3 {font-size:1.8em}
 .navbar {
 	margin-bottom: 0;
 	.nav {float:none}
+	.nav > li {
+		display: inline-block;
+		float: none;
+	}
 }
+
 
 .navbar-inner {
 	border-radius:0;
 	box-shadow:none;}
+
+.nav-collapse {
+	width:@gridRowWidth;
+	margin:0 auto;
+}
+	
 #nav .menuder {
 	background-color: @bordeaux;
 	border:none;
-	width:@gridRowWidth;
+	text-align:center;
 	margin:0 auto;
 	text-transform:uppercase;
 	font-weight:normal;
@@ -236,7 +247,7 @@ span.DateCreated {
 }
 
 @media (min-width: 1200px) {
-	#header, #nav .menuder,.footer_container{
+	#header, #nav .nav-collapse,.footer_container{
 		width:@gridRowWidth1200;
 	}
 	.showcase {
@@ -246,7 +257,7 @@ span.DateCreated {
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-		#header, #nav .menuder,.footer_container{
+		#header, #nav .nav-collapse,.footer_container{
 		width:@gridRowWidth768;
 	}
 }
