@@ -6,11 +6,14 @@
 	<ul class="liste-items">
 		<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?}{par titre} {pagination 20}>
 		<li>
-			[(#LOGO_ARTICLE
+			
+			[<a href="#URL_ARTICLE">(#LOGO_ARTICLE
 				|image_passe_partout{75,75}
 				|image_recadre{75,75}
 				|inserer_attribut{class,spip_logos}
-				|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]
+				|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})
+			</a>]
+			
 			<h3><a href="#URL_ARTICLE">[(#TITRE)]</a></h3>
 			[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
 			<BOUCLE_titre(RUBRIQUES){id_rubrique}>
