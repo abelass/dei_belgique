@@ -6,6 +6,10 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// A
 	'adresse' => 'Rue du Marché aux Poulets 30<br/>1000 Bruxelles',
+	
+	// B
+	'barre_outil_justifie' => 'Justifier <justifie>jutifie</justifie>',
+	'barre_outil_souligne' => 'Souligner<souligne>souligne</souligne>',	
 
 	// C
 	'contact' => 'Contact',

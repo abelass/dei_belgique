@@ -17,6 +17,7 @@ body {
 	font-size: 0.7em;
 }
 
+a:hover {background:none}
 
 /*Titrailles*/
 h2, h3, h3 a,h1, h2 a{
@@ -338,8 +339,16 @@ span.DateCreated {
 
 // Recherche
 
-.menu_recherche li{margin-bottom:1em}
-
+.menu_recherche {
+	h3 {
+		margin-bottom:0.1em;
+		font-size: 1.7em;}
+	li{margin-bottom:1em}
+	.spip_logos {
+		float:left;
+		 margin: 0 1em 0.1em 0;
+	}
+}
 .spip_surligne {
     background-color: lighten(@orange,30%);
     color: @orange;
