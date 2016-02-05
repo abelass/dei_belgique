@@ -285,6 +285,7 @@ dl.faq.js dt {
 }
 
 .highlights{
+	hyphens:auto;
 	ul.articles{
 		margin-right: -20px !important;
 		padding: 0;
@@ -374,8 +375,47 @@ span.DateCreated {
 }
 
 @media (max-width: 767px) {
+	#header{
+		width:100%;
+		.formulaire_recherche{
+			width:33%;
+			float:left;
+			clear:none;
+		}
+	.traductions {
+		width: 49%;
+		float:right;
+	}
+	}
 	.navbar-inverse .navbar-inner {
-		background:transparent;;
+		background:transparent;
+	}
+	
+.highlights{
+
+		ul.articles{
+			margin-right: -20px !important;
+			padding: 0 1em 0 0;
+			display: block;
+			justify-content: none;
+			li {
+				width:100%
+			}
+		}
+	}
+	.wrapper {
+
+		.facebook{
+			width:300px;
+			margin:0 auto;
+		}
+	}
+	.footer_container{
+		width:100%;
+		> div{
+			padding:0 1em;
+			
+		}
 	}
 }
 
