@@ -171,52 +171,56 @@ h3 {font-size:1.8em}
 
 
 dl.faq {
+	width:100%;
 	dd{
 		margin-top: 0px !important;
-		border-width: 1px 1px 1px 1px;
 		border-style: solid;
 		border-color: #dddddd;
 		border-width: 0px 1px 1px 1px;
-		background: #eeeeee url(../images/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
 		color: #333333;
+		background-color: #eeeeee;
+		border-radius:0 0 5px 5px ;
+		padding:4px;
 	}
 	dt{
 		margin: 0px 0px 1px !important;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		padding-left: 30px;
-		width:100%;
 		border: 1px solid #cccccc;
 		background: #923882;
 		color: #fff;
-		margin-bottom: -1px !important;
-		a,
-		a:hover,
-		a:active,
-		a:focus{
-			text-decoration: none;
-			background-color: transparent;
-		}
-		a {
-			color: #fff;
-		}
+    font-size: 1.4em;
+    font-weight:normal;
+    text-shadow:none;
+    text-transform:uppercase;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    text-decoration: none;
+    line-height: 16px;
+    list-style: none;
+    position: relative;
+    zoom: 1;
+
 	}
-	dt.close:hover,
-	dt.close:hover a {
+	dt.close:hover {
 		background: #923882;
 		color: #fff;
+		background-repeat: no-repeat;
+			background-position: 0.6em 50%;
 	}
-	dt.close,
-	dt.close a{
-		font-size: 1.1em;
-		font-weight: normal;
+	dt.close{
 		background: #F58D00;
 		margin-top: 1em !important;
 		color: #fff;
+		border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 	}
-	dt:hover,
-	dt:hover a{
+	dt:hover{
 		color: #fff;
+		background-repeat: no-repeat;
+		background-position: 0.6em 50%;
 	}
 	.close {
 		float: none;
@@ -225,42 +229,20 @@ dl.faq {
 }
 
 
-d:hover,
-.faq.lightnessfaq .accordionfaqheader.selected
-{
-	background-color: transparent;
+dl.faq.js dt.close {
+	background-image: url(images/accordion/arrow-right.png);
 }
-.faq.lightnessfaq.rtl.arrow .accordionfaqheader:hover span.accordionfaqicon
-{
-	background-image: url(../images/collapsed-black-l.gif);
-}
-.faq.lightnessfaq.arrow .accordionfaqheader:hover span.accordionfaqicon
-{
-	background-image: url(../images/collapsed-black.gif);
-}
-.faq.lightnessfaq.arrow .accordionfaqheader.selected span.accordionfaqicon,
-.faq.lightnessfaq.rtl.arrow .accordionfaqheader.selected span.accordionfaqicon
-{
-	background-image: url(../images/expanded-black.gif);
-}
-.faq.lightnessfaq.defaulticon span.accordionfaqicon
-{
-	background-attachment: scroll;
-	background-image: url(../images/ui-icons_ffffff_256x240.png);
+
+
+dl.faq.js dt {
+	background-image: url(images/accordion/arrow-bottom.png);
+	background-position: 0.6em 50%;
 	background-repeat: no-repeat;
-	background-position: -112px -192px;
-	width: 16px;
-	height: 16px;
-	overflow: hidden;
+	cursor: pointer;
+	padding: 0.6em 1em 0.6em 1.77em;
 }
-.faq.lightnessfaq.rtl.defaulticon span.accordionfaqicon
-{
-	background-position: -144px -192px;
-}
-.faq.lightnessfaq.defaulticon .accordionfaqheader.selected span.accordionfaqicon
-{
-	background-position: -128px -192px;
-}
+
+
 
 
 /*Général*/
