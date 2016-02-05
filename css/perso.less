@@ -167,6 +167,102 @@ h3 {font-size:1.8em}
 	select,input#recherche {width:100%}
 }
 
+/* Accordéon*/
+
+
+dl.faq {
+	dd{
+		margin-top: 0px !important;
+		border-width: 1px 1px 1px 1px;
+		border-style: solid;
+		border-color: #dddddd;
+		border-width: 0px 1px 1px 1px;
+		background: #eeeeee url(../images/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
+		color: #333333;
+	}
+	dt{
+		margin: 0px 0px 1px !important;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 30px;
+		width:100%;
+		border: 1px solid #cccccc;
+		background: #923882;
+		color: #fff;
+		margin-bottom: -1px !important;
+		a,
+		a:hover,
+		a:active,
+		a:focus{
+			text-decoration: none;
+			background-color: transparent;
+		}
+		a {
+			color: #fff;
+		}
+	}
+	dt.close:hover,
+	dt.close:hover a {
+		background: #923882;
+		color: #fff;
+	}
+	dt.close,
+	dt.close a{
+		font-size: 1.1em;
+		font-weight: normal;
+		background: #F58D00;
+		margin-top: 1em !important;
+		color: #fff;
+	}
+	dt:hover,
+	dt:hover a{
+		color: #fff;
+	}
+	.close {
+		float: none;
+		opacity: 1;
+	}
+}
+
+
+d:hover,
+.faq.lightnessfaq .accordionfaqheader.selected
+{
+	background-color: transparent;
+}
+.faq.lightnessfaq.rtl.arrow .accordionfaqheader:hover span.accordionfaqicon
+{
+	background-image: url(../images/collapsed-black-l.gif);
+}
+.faq.lightnessfaq.arrow .accordionfaqheader:hover span.accordionfaqicon
+{
+	background-image: url(../images/collapsed-black.gif);
+}
+.faq.lightnessfaq.arrow .accordionfaqheader.selected span.accordionfaqicon,
+.faq.lightnessfaq.rtl.arrow .accordionfaqheader.selected span.accordionfaqicon
+{
+	background-image: url(../images/expanded-black.gif);
+}
+.faq.lightnessfaq.defaulticon span.accordionfaqicon
+{
+	background-attachment: scroll;
+	background-image: url(../images/ui-icons_ffffff_256x240.png);
+	background-repeat: no-repeat;
+	background-position: -112px -192px;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+}
+.faq.lightnessfaq.rtl.defaulticon span.accordionfaqicon
+{
+	background-position: -144px -192px;
+}
+.faq.lightnessfaq.defaulticon .accordionfaqheader.selected span.accordionfaqicon
+{
+	background-position: -128px -192px;
+}
+
+
 /*Général*/
 .newsletter{
 	background: white none repeat scroll 0 0;

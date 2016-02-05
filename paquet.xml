@@ -21,7 +21,8 @@
 	<necessite nom="newsletters" compatibilite="[1.3.14;]" />
 	<necessite nom="selection_objet" compatibilite="[1.10.2;]" />
 	<necessite nom="chosen" compatibilite="[1.6.0;]" />
-	<necessite nom="typoenluminee" compatibilite="[3.5.6;]" />	
+	<necessite nom="typoenluminee" compatibilite="[3.5.6;]" />
+	<necessite nom="faq" compatibilite="[3.0.9;]" />	
 	
 
 	<pipeline nom="porte_plume_barre_pre_charger" inclure="dei_belgique_pipelines.php" />
