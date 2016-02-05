@@ -72,39 +72,44 @@ h3 {font-size:1.8em}
 	margin:0 auto;
 }
 	
-#nav .menuder {
-	background-color: @bordeaux;
-	border:none;
-	text-align:center;
-	margin:0 auto;
-	text-transform:uppercase;
-	font-weight:normal;
-	ul {
-		background-color: @navbarInverseBackground;
+
+
+#nav {
+	.menuder {
+		background-color: @bordeaux;
 		border:none;
-		}
-	li {
-		width:auto;
-		background-color: @navbarInverseBackground;
-		ul{
-			width:17.5em;
-			ul{
-				margin: -2.2em 0 0 17.5em;
-			}
-		}
-		a{
-			margin: 0.8em 0;
-			width:auto;
+		text-align:center;
+		margin:0 auto;
+		text-transform:uppercase;
+		font-weight:normal;
+		ul {
+			background-color: @navbarInverseBackground;
+			border:none;
 			}
 		li {
-		  width:16.5em;
-			a{margin:0}
+			width:auto;
 			background-color: @navbarInverseBackground;
+			ul{
+				width:17.5em;
+				ul{
+					margin: -2.2em 0 0 17.5em;
+				}
+			}
+			a{
+				margin: 0.8em 0;
+				width:auto;
+				}
+			li {
+			  width:16.5em;
+				a{margin:0}
+				background-color: @navbarInverseBackground;
+			}
 		}
+	
+		li:hover,li.hover, a:hover, li.on, { background-color: @orange; }
+		a{color:@navbarInverseLinkColor}
 	}
 
-	li:hover,li.hover, a:hover, li.on, { background-color: @orange; }
-	a{color:@navbarInverseLinkColor}
 }
 .navbar-inverse .navbar-inner {
 		background:@bordeaux;
@@ -371,6 +376,24 @@ span.DateCreated {
 	}
 	.navbar .nav > li > a {
 		padding: 10px 7px;
+	}
+}
+
+@media (max-width: 979px) {
+	#nav{
+		.menuder {
+			display:block;
+			width:17.5em;
+			float:right;
+			z-index:200;
+			text-align:right;
+			li {
+				display:block;
+				ul {
+					left:auto;
+				}
+			}
+		}
 	}
 }
 
