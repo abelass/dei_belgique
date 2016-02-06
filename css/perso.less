@@ -380,11 +380,22 @@ span.DateCreated {
 }
 
 @media (max-width: 979px) {
-	h1#logo_site_spip {
-		margin: 0 auto;
-		width: 300px;
-	}
 
+}
+
+@media (max-width: 767px) {
+	#header{
+		width:100%;
+		.formulaire_recherche{
+			width:33%;
+			float:left;
+			clear:none;
+		}
+		.traductions {
+			width: 49%;
+			float:right;
+		}
+	}
 	#nav{
 		.menuder {
 			display:block;
@@ -407,21 +418,6 @@ span.DateCreated {
 	}
 .navbar .nav li a {
     padding: 2px 23px;
-	}
-}
-
-@media (max-width: 767px) {
-	#header{
-		width:100%;
-		.formulaire_recherche{
-			width:33%;
-			float:left;
-			clear:none;
-		}
-	.traductions {
-		width: 49%;
-		float:right;
-	}
 	}
 	.navbar-inverse .navbar-inner {
 		background:transparent;
