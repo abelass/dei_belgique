@@ -28,8 +28,6 @@
 
 	<pipeline nom="porte_plume_barre_pre_charger" inclure="dei_belgique_pipelines.php" />
 	<pipeline nom="porte_plume_lien_classe_vers_icone" inclure="dei_belgique_pipelines.php" />
-	<pipeline nom="pre_propre" inclure="dei_belgique_pipelines.php" />
-	<pipeline nom="post_propre" inclure="dei_belgique_pipelines.php" />
 	
 	<lib nom="nivoslider" lien="http://www.jqueryscript.net/download/nivo-slider.zip" />
 

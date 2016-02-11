@@ -1,0 +1,18 @@
+--- # Syntaxe des raccourcis extras pour dei
+
+
+justifie:
+  # raccourci <justifie>
+  match: ['<justifie>', '</justifie>']
+  replace: ['<div class="justifie">', '</div>']
+  if_str: '<justifie>'
+  type: str
+
+souligne:
+  # raccourci <souligne>
+  match: ['<souligne>', '</souligne>']
+  replace: ['<span class="souligne">', '</span>']
+  if_str: '<souligne>'
+  type: str
+
+

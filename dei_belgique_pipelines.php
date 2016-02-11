@@ -63,32 +63,4 @@ function dei_belgique_porte_plume_lien_classe_vers_icone($flux) {
 	));
 }
 
-/**
- * Insertion dans le pipeline post_propre (SPIP)
- * 
- * Remplacement de caracteres apres le passage de propre
- * 
- * @param $texte string
- * 	Le texte a modifier
- * @return $texte string
- */
-function dei_belgique_pre_propre($texte) {
-
-	$search = array(
-		'<justifie>',
-		'</justifie>',
-		'<souligne>',
-		'</souligne>'
-	);
-	$replace = array(
-		"<p class='justifie'>",
-		'',
-		'<span class="souligne">',
-		'</span>'
-	);
-		
-	$texte = str_replace($search, $replace, $texte);
-
-	return $texte;
-}
 
