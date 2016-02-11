@@ -4,7 +4,7 @@
 justifie:
   # raccourci <justifie>
   match: ['<justifie>', '</justifie>']
-  replace: ['<div class="justifie">', '</div>']
+  replace: ['<p class="justifie">', '</p>']
   if_str: '<justifie>'
   type: str
 
