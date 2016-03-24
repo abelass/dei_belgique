@@ -62,5 +62,3 @@ function dei_belgique_porte_plume_lien_classe_vers_icone($flux) {
 		'outil_souligne' => 'souligne.png',
 	));
 }
-
-
