@@ -13,11 +13,15 @@
 		<div class="#EDIT{texte} chapo">
 			(#TEXTE)
 		</div>]
-		<BOUCLE_documentation(RUBRIQUES){id_trad=33}{lang}>
-		<div class="ajax">
-			[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_RUBRIQUE,#ARRAY{parents,oui}})]
-		</div>
-		</BOUCLE_documentation>
+		<BOUCLE_teste(CONDITION){si #ID_TRAD|=={33}|oui}>
+			<BOUCLE_documentation(RUBRIQUES){id_trad=33}{lang}>
+			<div class="ajax">
+				[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_RUBRIQUE,#ARRAY{parents,oui}})]
+			</div>
+			</BOUCLE_documentation>
+			</BOUCLE_teste>
+				[(#FORMULAIRE_RECHERCHE_DOCUMENTS{#ID_RUBRIQUE})]
+			<//B_teste>
 	[
 	<footer class="notes">
 		<aside class="notes">

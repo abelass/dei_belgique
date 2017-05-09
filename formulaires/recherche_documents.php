@@ -7,8 +7,9 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * on peut lui passer l'url de destination en premier argument
  * on peut passer une deuxième chaine qui va différencier le formulaire pour pouvoir en utiliser plusieurs sur une même page
  *
- * @param string $lien URL où amène le formulaire validé
- * @param string $class Une class différenciant le formulaire
+ * @param integer $id id_rubrique
+ * @param string $options
+ *        pour le moment uniquement parents = true : afficher les cotneus de ls sousribrique
  * @return array
  */
 function formulaires_recherche_documents_charger_dist($id, $options=array()){
@@ -45,27 +46,15 @@ function formulaires_recherche_documents_charger_dist($id, $options=array()){
 
 	// Si recherche sur mots déterminés on établis les articles correspondants
 	if (is_array($mots) AND array_sum($mots)>0 AND !in_array('all',$mots)){
-	 /*
-		$where = "";
-		$i = 0;
-		$total = count($mots);
-		
-		foreach ($mots as $mot) {
-			$i++;
-			$where .= "(L$i.id_mot = $mot)";
-			$join .= "  JOIN spip_mots_liens AS L$i ON ( L$i.id_objet = articles.id_article AND L$i.objet='article') ";
-			if ($i != $total) $where .= " AND ";
-		}*/
 
-		
 		$sql = sql_select("id_article","spip_articles AS articles LEFT JOIN  spip_mots_liens AS mots ON articles.id_article=mots.id_objet AND mots.objet='article'",'id_mot IN (' . implode(',',$mots) . ')','id_article');
-		
+
 		$articles = array();
 
 		while ($data = sql_fetch($sql)){
 			$articles[] = $data['id_article'];
 		}
-		
+
 		if (count($articles) > 0) {
 			$valeurs['where'] = 'id_article IN (' . implode(',',$articles) . ')';
 		}

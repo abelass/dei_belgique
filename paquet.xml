@@ -1,7 +1,7 @@
 <paquet
 	prefix="dei_belgique"
 	categorie="squelette"
-	version="1.0.2"
+	version="1.0.3"
 	etat="dev"
 	compatibilite="[3.0.21;3.1.*]"
 	logo="prive/themes/spip/images/dei_belgique-64.png"
@@ -10,7 +10,7 @@
 
 	<nom>DEI Belgique</nom>
 
-	<!-- cette balise peut etre presente plusieurs fois s'il y a plusieurs auteurs --> 
+	<!-- cette balise peut etre presente plusieurs fois s'il y a plusieurs auteurs -->
 	<auteur lien='http://websimple.be'>Rainer</auteur>
 
 	<licence>GNU/GPL</licence>
@@ -24,7 +24,7 @@
 	<necessite nom="typoenluminee" compatibilite="[3.5.6;]" />
 	<necessite nom="faq" compatibilite="[3.0.9;]" />
 	<necessite nom="sidr" compatibilite="[ 1.2.4;[" />
-	
+
 
 	<pipeline nom="porte_plume_barre_pre_charger" inclure="dei_belgique_pipelines.php" />
 	<pipeline nom="porte_plume_lien_classe_vers_icone" inclure="dei_belgique_pipelines.php" />
