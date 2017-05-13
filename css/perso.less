@@ -36,7 +36,7 @@ h3 {font-size:1.8em}
 
 // Typo shorcuts
 .justifie{text-align:justify;}
-	
+
 .souligne{text-decoration: underline;}
 
 /*
@@ -71,7 +71,7 @@ h3 {font-size:1.8em}
 	width:@gridRowWidth;
 	margin:0 auto;
 }
-	
+
 
 
 #nav {
@@ -105,7 +105,7 @@ h3 {font-size:1.8em}
 				background-color: @navbarInverseBackground;
 			}
 		}
-	
+
 		li:hover,li.hover, a:hover, li.on, { background-color: @orange; }
 		a{color:@navbarInverseLinkColor}
 	}
@@ -153,6 +153,16 @@ h3 {font-size:1.8em}
 	color: #fff;
 	font-size: 190%;
 	text-align: center;
+}
+
+.flex {
+	display: flex;
+	 flex-wrap: wrap;
+	 justify-content: space-between;
+}
+
+.flex .item {
+	width: 30%;
 }
 
 /*Formulaires*/
@@ -343,6 +353,27 @@ span.DateCreated {
 
 .menu.annee {margin-bottom:1.5em; font-size:1em}
 
+.rubrique_outils_pedagogique {
+	.flex {
+		text-align: center;
+		.item {
+			position: relative;
+			.titre {
+				position: absolute;
+				bottom: 0;
+				background: #fff;
+				font-size: 1.6em;
+				text-align:center;
+				width: 100%;
+				font-weight: bold;
+				margin: 0;
+				padding: 0.7em 0;
+				line-height:normal;
+			}
+		}
+	}
+}
+
 // Recherche
 
 .menu_recherche {
@@ -359,6 +390,8 @@ span.DateCreated {
     background-color: lighten(@orange,30%);
     color: @orange;
 }
+
+
 
 @media (min-width: 1200px) {
 	#header, #nav .nav-collapse,.footer_container{
@@ -445,10 +478,10 @@ span.DateCreated {
 		width:100%;
 		> div{
 			padding:0 1em;
-			
+
 		}
 	}
-	
+
 	#formulaire_recherche_documents .editer-groupe li.main {
 		width: 90%;
 		display: block;
