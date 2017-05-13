@@ -1,0 +1,29 @@
+<li class="item hentry">
+
+	<div class="header">
+		[<a href="#URL_ARTICLE">(#LOGO_ARTICLE
+			|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]}
+			|image_passe_partout{75,75}
+			|image_recadre{75,75}
+			|inserer_attribut{class,spip_logos})
+		</a>]
+		<h3 class="Title"><a class="lire-la-suite" href="#URL_ARTICLE">#TITRE</a></h3>
+		[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
+	</div>
+	<div class="body">
+		<div class="categories">
+		<BOUCLE_titre(RUBRIQUES){id_rubrique}>
+			<p><span class="label"><:dei_belgique:label_categories:></span> <em>#TITRE</em></p>
+		</BOUCLE_titre>
+		<B_mot>
+		<p><span class="label"><:dei_belgique:label_themes:></span>
+			<em>
+			<BOUCLE_mot(MOTS){id_article}{', '}>#TITRE</BOUCLE_mot>
+			</em>
+		</p>
+		</B_mot>
+		</div>
+			[<p class="introduction entry-content">(#ENV{introduction}|html_entity_decode|couper{#ENV{couper,350}})</p>]
+			<INCLURE{fond=inclure/documents,id_article, id_rubrique='',env}/>
+	</div>
+</li>

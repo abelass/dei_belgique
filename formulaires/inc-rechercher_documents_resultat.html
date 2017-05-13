@@ -6,25 +6,14 @@
 	<ul class="liste-items">
 		<BOUCLE_articles(ARTICLES spip_mots_liens) {recherche?} {id_rubrique IN #ENV{_rubriques}} {where?}{par titre} {pagination 20}>
 		<li>
-
-			[<a href="#URL_ARTICLE">(#LOGO_ARTICLE
-				|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]}
-				|image_passe_partout{75,75}
-				|image_recadre{75,75}
-				|inserer_attribut{class,spip_logos})
-			</a>]
-
-			<h3><a href="#URL_ARTICLE">[(#TITRE)]</a></h3>
-			[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
-			<BOUCLE_titre(RUBRIQUES){id_rubrique}>
-				<div><:dei_belgique:label_categories:> #TITRE</div>
-			</BOUCLE_titre>
-			<B_mot>
-			<div><:dei_belgique:label_themes:>
-			<BOUCLE_mot(MOTS){id_article}{', '}>#TITRE</BOUCLE_mot>
-			</div>
-			</B_mot>
-			[<div>(#INTRODUCTION|couper{350})</div>]
+				<INCLURE{fond=inclure/article-resume-ext,
+					id_article,
+					titre,
+					date=#DATE,
+					introduction=#INTRODUCTION,
+					titre_documents_joints=rien,
+					afficher_images=non,
+					env}/>
 		</li>
 		</BOUCLE_articles>
 	</ul>
