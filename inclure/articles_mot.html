@@ -5,7 +5,7 @@
 
 	<h2 class="h2">			#INFO_TITRE{rubrique,#ID_RUBRIQUE}</h2>
 	<ul class="liste-items">
-		<BOUCLE_articles(ARTICLES) {id_mot} {par popularite}{inverse} {pagination 20}>
+		<BOUCLE_articles(ARTICLES) {id_mot} {id_rubrique?} {par popularite}{inverse} {pagination 20}>
 		<li class="item">
 			<INCLURE{fond=inclure/article-resume-ext,
 				id_article,
