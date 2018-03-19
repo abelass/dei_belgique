@@ -3,7 +3,7 @@
  * Options utiles au plugin DEI Belgique
  *
  * @plugin     DEI Belgique
- * @copyright  2015
+ * @copyright  2015 - 2018
  * @author     Rainer
  * @licence    GNU/GPL
  * @package    SPIP\Dei_belgique\Options
