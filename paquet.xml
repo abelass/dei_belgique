@@ -3,7 +3,7 @@
 	categorie="squelette"
 	version="1.1.0"
 	etat="dev"
-	compatibilite="[3.0.21;3.1.*]"
+	compatibilite="[3.0.21;3.2.*]"
 	logo="prive/themes/spip/images/dei_belgique-64.png"
 	documentation=""
 >
@@ -19,7 +19,7 @@
 	<necessite nom="wsp_ml" compatibilite="[0.2.6;]" />
 	<necessite nom="menuder" compatibilite="[2.2.0;]" />
 	<necessite nom="newsletters" compatibilite="[1.3.14;]" />
-	<necessite nom="selection_objet" compatibilite="[1.10.2;]" />
+	<necessite nom="liaison_objet" compatibilite="[2.0.2;]" />
 	<necessite nom="chosen" compatibilite="[1.6.0;]" />
 	<necessite nom="typoenluminee" compatibilite="[3.5.6;]" />
 	<necessite nom="faq" compatibilite="[3.0.9;]" />
