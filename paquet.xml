@@ -1,7 +1,7 @@
 <paquet
 	prefix="dei_belgique"
 	categorie="squelette"
-	version="1.1.0"
+	version="2.0.0"
 	etat="dev"
 	compatibilite="[3.0.21;3.2.*]"
 	logo="prive/themes/spip/images/dei_belgique-64.png"
