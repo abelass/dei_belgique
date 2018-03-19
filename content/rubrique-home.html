@@ -23,7 +23,7 @@
 				<B_higlights>
 				<div class="highlights">
 					<ul class="liste-items articles">
-				<BOUCLE_higlights(REPLACE_OBJETS){objet_dest=rubrique}{id_objet_dest=#ID_RUBRIQUE}{par ordre}{0,4}>
+				<BOUCLE_higlights(LIAISON_OBJETS){objet_dest=rubrique}{id_objet_dest=#ID_RUBRIQUE}{par ordre}{0,4}>
 					[<li class="[(#COMPTEUR_BOUCLE|alterner{even,odd})][ (#COMPTEUR_BOUCLE|=={1}|?{firstItem,[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui)lastItem]})]">(#ID_OBJET|generer_modele{#OBJET,modeles_so/highlights,#ARRAY{descriptif,#DESCRIPTIF,titre,#TITRE,url,#URL}})</li>]
 				</BOUCLE_higlights>
 					</ul>
